@@ -1,0 +1,33 @@
+/**********************
+basic styles
+**********************/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+//body {
+//    font-family: $fontFamily;
+//    font-size: $fontSize;
+//    line-height: 1.6;
+//    color: $gray;
+//}
+a{
+    text-decoration: none;
+    //transition: $transition;
+}
+ul{
+    list-style: none;
+}
+
+h6 {
+    font-size: 1.8rem;
+    &::after {
+      display: block;
+      content: "";
+      width: 20%;
+      background: darkviolet;
+      height: 2px;
+      margin: 20px 0 30px 0;
+    }
+  }

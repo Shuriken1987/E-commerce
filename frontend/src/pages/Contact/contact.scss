@@ -1,0 +1,104 @@
+.section-padding{
+    padding: 75px 0;
+}
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+// contact form
+.contact-form {
+  h3 {
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-size: 25px;
+    color: #333;
+    margin-bottom: 25px;
+  }
+  label {
+    font-family: "Lato", sans-serif;
+    text-transform: uppercase;
+    font-size: 11px;
+    font-style: italic;
+    font-weight: 600;
+    color: #222;
+    padding: 10px 0;
+  }
+  .btn {
+    font-weight: 600;
+    font-size: 12px;
+    margin-bottom: 35px;
+  }
+}
+.successMessage {
+    color: #fff;
+    margin-bottom: 1rem;
+    background: #3db13d;
+    padding: 10px;
+    border-radius: 5px
+}
+
+.errorMessage {
+    color: #fff;
+    margin-bottom: 1rem;
+    background: tomato;
+    padding: 10px;
+    border-radius: 5px;
+}
+.hidden {
+    display: none;
+}
+@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
+
+// contact info
+.section-header {
+  margin-bottom: 70px;
+  h3 {
+    color: #333;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-size: 25px;
+    margin-top: 0;
+    text-transform: uppercase;
+    position: relative;
+    padding-bottom: 25px;
+  }
+  p {
+    font-family: "Lato", sans-serif;
+    font-size: 15px;
+    color: #ababab;
+  }
+}
+
+.contact-info {
+  position: relative;
+  padding-left: 50px;
+  margin-bottom: 42px;
+
+  span {
+    color: #1daaa3;
+    font-size: 35px;
+    position: absolute;
+    top: -10px;
+    left: 0;
+  }
+  p {
+    color: #9c9c9c;
+    font-family: "Lato", sans-serif;
+    font-size: 14px;
+    letter-spacing: 0.56px;
+    line-height: 22px;
+    margin-bottom: 0;
+
+    a {
+      color: #9c9c9c;
+      text-decoration: none;
+    }
+  }
+}
+
+//contact map
+.map-frame{
+    height: 400px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }

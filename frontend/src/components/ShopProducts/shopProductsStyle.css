@@ -1,0 +1,24 @@
+.shop-ad-wrapper .product-view {
+  text-decoration: none;
+  color: black;
+}
+.shop-ad-wrapper .product-view .featuredImage {
+  overflow: hidden;
+}
+.shop-ad-wrapper .product-view .featuredImage img {
+  width: 100%;
+  transition: transform 1.5s linear;
+}
+.shop-ad-wrapper .product-view .featuredImage img:hover {
+  transform: scale(1.3);
+}
+.shop-ad-wrapper .product-view .card-body .product-title {
+  font-size: 20px;
+  font-weight: 600;
+}
+.shop-ad-wrapper .product-view .card-body .product-price {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+/*# sourceMappingURL=shopProductsStyle.css.map */

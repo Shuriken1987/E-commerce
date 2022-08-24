@@ -1,0 +1,41 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Akronim&display=swap");
+.main-nav {
+  background-color: #252525;
+  height: 70px;
+  display: flex;
+  align-items: center;
+}
+.main-nav.sticky-nav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.main-nav .main-nav-links {
+  text-transform: uppercase;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.main-nav .main-nav-links .furn-logo {
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+.main-nav .main-nav-links .furn-logo span:nth-child(2) {
+  color: #f1c50e;
+}
+.main-nav .main-nav-links a {
+  font-size: 0.9rem;
+  color: white;
+  font-weight: 600;
+  margin: 0 5px;
+}
+.main-nav .main-nav-links a:hover {
+  color: #f1c50e;
+  transition: 0.5s ease-in-out;
+}
+.main-nav .main-nav-links a.active {
+  color: #f1c50e;
+}
+
+/*# sourceMappingURL=navigation.css.map */

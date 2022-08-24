@@ -1,0 +1,21 @@
+@import '../../assets/scss/variables';
+.error-wraper{
+    padding: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    h1{
+        font-size: 7rem;
+    }
+    h3{
+        font-size: 3rem;
+    }
+    button{
+        padding: 10px;
+        background-color: $yellow ;
+        color: $violet;
+        border-radius: 10px;
+        border: 1px solid $firstFontColor;
+    }
+}

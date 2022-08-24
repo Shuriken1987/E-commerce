@@ -1,0 +1,150 @@
+@import "../../assets/scss/variables";
+
+.ja{
+  .single-product-img{
+    width: 80%;
+  }
+}
+
+.product-details{
+  padding: 0 100px;
+  .product-title{
+    font-size: 48px;
+  }
+  .product-price{
+    font-size: 32px;
+  }
+  .rating-stars-product{
+    padding: 10px 0;
+    font-size: 20px;
+  }
+  .add-to-cart{
+    margin: 20px auto;
+    color: $secondFontColor;
+    transition: $transition;
+  }
+  .product-descriptionn{
+    font-size: 24px;
+  }
+}
+@media(max-width: 767px) {
+  .product-details{
+    padding: 0 15px;
+    .product-title{
+      font-size: 32px;
+    }
+  }
+}
+
+//PRODUCT DETAILS
+.product-details-box {
+  margin: 100px 0;
+
+  .toggle-btn {
+    color: #333;
+    font-weight: 500;
+    font-size: 14px;
+    padding: 11px 40px;
+    border: none;
+    text-transform: uppercase;
+
+    &:hover {
+      background-color: $violet;
+      color: $white;
+    }
+  }
+
+  .btn {
+    color: $yellow;
+  }
+
+  hr {
+    color: $violet;
+    height: 2px !important;
+  }
+
+  .product-details-content {
+    color: #444;
+    font-size: 18px;
+    line-height: 30px;
+  }
+}
+
+//LATEST PRODUCTS
+.latest-products {
+  .section-header {
+    h3 {
+      color: #333;
+      font-weight: 600;
+      font-size: 36px;
+      margin-top: 0;
+      text-transform: uppercase;
+      padding-bottom: 25px;
+      position: relative;
+
+      &:after {
+        background-color: #1daaa3;
+        content: "";
+        display: inline-block;
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: 0 auto;
+        width: 64px;
+        height: 3px;
+      }
+    }
+  }
+
+  .new-product {
+    top: 15px;
+    right: auto;
+    left: 15px;
+    padding: 5px 10px;
+    position: absolute;
+    text-align: center;
+    margin: 0;
+    background-color: #1daaa3;
+    color: white;
+    font-size: 11px;
+    text-transform: uppercase;
+  }
+
+  .icons {
+    padding-top: 10px;
+    background-color: white;
+    color: #1daaa3;
+    height: 40px;
+    width: 40px;
+  }
+}
+
+//COMMENTS
+.comment {
+  box-shadow: 0 0 5px darkgray;
+
+  .comment-header {
+    p {
+      font-size: 18px;
+      margin: 0;
+    }
+
+    .author {
+      font-weight: 300;
+      font-size: 20px;
+    }
+
+    .date {
+      font-size: 12px;
+      color: #9c9c9c;
+    }
+  }
+
+  .content {
+    font-size: 20px;
+    font-weight: 400;
+    padding-bottom: 15px;
+    word-wrap: break-word;
+  }
+}

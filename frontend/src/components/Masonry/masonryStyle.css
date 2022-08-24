@@ -1,0 +1,182 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Akronim&display=swap");
+.masonry {
+  margin: 100px auto;
+}
+.masonry .ad {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.masonry .ad .modern-box {
+  position: relative;
+  background-color: #f7f7f7;
+  display: flex;
+  margin-bottom: 10px;
+  padding: 30px 10px;
+}
+.masonry .ad .modern-box .img {
+  max-width: 100%;
+  height: 100%;
+}
+.masonry .ad .modern-box .ad-heading {
+  color: #222;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 39px;
+  letter-spacing: 0.84px;
+  margin-top: 0;
+  text-transform: uppercase;
+}
+.masonry .ad .modern-box .description {
+  color: #cac9c9;
+  font-size: 15px;
+  letter-spacing: 0.45px;
+  text-transform: uppercase;
+  padding: 10px 0;
+}
+.masonry .ad .modern-box .shop-now {
+  color: #222;
+  position: absolute;
+  bottom: 50px;
+  right: 16%;
+  font-size: 15px;
+  letter-spacing: 0.45px;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: all 1s ease 0s;
+}
+.masonry .ad .modern-box .shop-now:hover {
+  color: blueviolet;
+}
+.masonry .static {
+  display: flex;
+  margin-bottom: 10px;
+}
+.masonry .static .discount-box {
+  background-color: blueviolet;
+  position: relative;
+  height: 100%;
+  text-align: center;
+  z-index: 1;
+}
+.masonry .static .discount-box:after {
+  content: "";
+  position: absolute;
+  border: 1px solid #fff;
+  top: 15px;
+  bottom: 15px;
+  left: 15px;
+  right: 15px;
+  z-index: -1;
+}
+.masonry .static .discount-box h3 {
+  color: #fff;
+  padding: 50px 20px 0 20px;
+  font-size: 28px;
+  margin-top: 0;
+  line-height: 33px;
+  text-transform: uppercase;
+}
+.masonry .static .discount-box p {
+  margin-bottom: 25px;
+  color: #fff;
+  font-size: 13px;
+  letter-spacing: 2.21px;
+  text-transform: uppercase;
+}
+.masonry .static .discount-box a {
+  background-color: violet;
+  border: 1px solid violet;
+  color: darkviolet;
+  display: inline-block;
+  font-size: 11px;
+  padding: 10px 30px;
+  letter-spacing: 0.77px;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: all 1s ease 0s;
+}
+.masonry .static .discount-box a:hover {
+  background-color: darkviolet;
+  color: white;
+  transition: all 1s ease 0s;
+}
+.masonry .static .discount-img-box {
+  position: relative;
+  text-align: center;
+}
+.masonry .static .discount-img-box:before {
+  background-color: rgba(0, 0, 0, 0.451);
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.masonry .static .discount-img-box img {
+  max-width: 100%;
+  height: auto;
+}
+.masonry .static .discount-img-content {
+  position: absolute;
+  top: 30%;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+.masonry .static .discount-img-content h3 {
+  color: #fff;
+  font-weight: 600;
+  font-size: 24px;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  word-wrap: break-word;
+}
+.masonry .static .discount-img-content a {
+  border: 1px solid #fff;
+  color: #fff;
+  display: inline-block;
+  font-size: 11px;
+  padding: 10px 30px;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: all 1s ease 0s;
+}
+.masonry .static .discount-img-content a:hover {
+  border: 1px solid #a5ddda;
+  color: #a5ddda;
+}
+
+.col-md-5, .col-md-7, .col-md-8 {
+  position: relative;
+  min-height: 1px;
+  padding: 0 15px;
+}
+
+.col-md-6 {
+  position: relative;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.reverse {
+  flex-direction: row-reverse;
+  padding-right: 10px;
+}
+.reverse .shop-now {
+  bottom: 10px;
+  left: 5%;
+}
+
+.modern-shop {
+  flex: 0 0 48%;
+}
+
+.modern-product img {
+  width: 80%;
+}
+
+/*# sourceMappingURL=masonryStyle.css.map */
