@@ -34,7 +34,9 @@ import Subscribers from "./adminComponents/Subscribers/Subscribers";
 import Orders from "./adminComponents/Orders/Orders";
 
 
-axios.defaults.baseURL = 'http://localhost:4000';
+// axios.defaults.baseURL = 'http://localhost:4000';
+axios.defaults.baseURL = 'https://food-florist-hbg.herokuapp.com/';
+
 
 function App() {
     const {user} = useSelector(state => state.userStore);
