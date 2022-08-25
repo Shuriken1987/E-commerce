@@ -42,7 +42,7 @@ app.use("/api/orders", ordersRoute);
 
 
 // getting clients from models/clients.json
-app.get("/api/home", (req, res) => {
+app.get("/api/clients", (req, res) => {
     res.send(clients);
 });
 
