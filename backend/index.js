@@ -1,3 +1,4 @@
+// const path = require('path');
 const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv').config();
@@ -42,9 +43,18 @@ app.use("/api/orders", ordersRoute);
 
 
 // getting clients from models/clients.json
-app.get("/api/clients", (req, res) => {
+app.get("/api/home", (req, res) => {
     res.send(clients);
 });
+
+// //Serve frontend
+// if (process.env.NODE_ENV  === 'development'){
+//     app.use(express.static(path.join(__dirname, '../frontend/build')))
+//
+//     app.get('*', (req,res)=> res.sendFile(path.resolve(__dirname, '../', 'frontend', 'build', 'index.html')))
+// }else{
+//     app.get('/', (req,res)=> res.send('Set to production'))
+// }
 
 //ServerConfig
 app.listen(serverConfig.port, err => {

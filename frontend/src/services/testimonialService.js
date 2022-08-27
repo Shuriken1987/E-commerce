@@ -3,7 +3,7 @@ import axios from "axios";
 class TestimonialService{
 
     static getClients(){
-        return axios.get('/api/clients');
+        return axios.get('/api/home');
     }
 }
 
