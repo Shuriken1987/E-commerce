@@ -57,7 +57,7 @@ app.get("/api/home", (req, res) => {
 // }
 
 //ServerConfig
-app.listen(serverConfig.port, err => {
+app.listen(process.env.Port || serverConfig.port, err => {
     if (err) {
         console.log(err);
     } else {
