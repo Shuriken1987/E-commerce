@@ -56,6 +56,8 @@ app.get("/api/home", (req, res) => {
 //     app.get('/', (req,res)=> res.send('Set to production'))
 // }
 
+app.get('/', (req, res) => { res.send('Hello from Express!')})
+
 //ServerConfig
 app.listen(process.env.Port || serverConfig.port, err => {
     if (err) {
