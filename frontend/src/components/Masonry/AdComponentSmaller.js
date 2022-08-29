@@ -1,4 +1,5 @@
 import {routeConfig} from "../../config/routeConfig";
+import {Link} from "react-router-dom";
 
 function AdComponentSmaller({products}) {
 
@@ -15,9 +16,9 @@ function AdComponentSmaller({products}) {
                                 <h3 className="ad-heading">Save up to 50% off</h3>
                                 <h5 className="description">Food bouquets</h5>
                             </div>
-                            <a className="shop-now" href={routeConfig.PRODUCT_SHOP.realUrl(el._id)}>Shop now
+                            <Link className="shop-now" to={routeConfig.PRODUCT_SHOP.realUrl(el._id)}>Shop now
                                 <i className="bi bi-caret-right-fill" aria-hidden={true}> </i>
-                            </a>
+                            </Link>
                         </div>
                     )
                 }

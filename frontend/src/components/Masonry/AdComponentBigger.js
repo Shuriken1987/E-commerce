@@ -1,4 +1,5 @@
 import {routeConfig} from "../../config/routeConfig";
+import {Link} from "react-router-dom";
 
 function AdComponentBigger({products}) {
 
@@ -14,9 +15,9 @@ function AdComponentBigger({products}) {
                             <div className="col-md-7 col-sm-6 col-xs-6">
                                 <h3 className="ad-heading">{el.title}</h3>
                             </div>
-                            <a href={routeConfig.PRODUCT_SHOP.realUrl(el._id)} className="shop-now">Shop now
+                            <Link to={routeConfig.PRODUCT_SHOP.realUrl(el._id)} className="shop-now">Shop now
                                 <i className="bi bi-caret-right-fill" aria-hidden={true}> </i>
-                            </a>
+                            </Link>
                         </div>
                     )
                 }

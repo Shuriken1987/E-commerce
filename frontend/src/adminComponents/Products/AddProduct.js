@@ -8,6 +8,7 @@ function AddProduct() {
     const [rating, setRating] = useState("");
     const [description, setDescription] = useState("");
     const [fileName, setFileName] = useState("");
+
     const [isApiErr, setIsApiErr] = useState(false);
     const [isApiFinish, setIsApiFinish] = useState(false);
     const [isValidForm, setIsValidForm] = useState(true);
@@ -20,19 +21,19 @@ function AddProduct() {
 
     const onSubmitForm = (e) => {
         e.preventDefault();
-        const product = {
-            title: title,
-            price: price,
-            rating: rating,
-            description: description,
-            productImg: fileName["name"]
-        }
-        if (!product.title || !product.productImg || !product.description || !product.price) {
+
+        if (!title || !fileName || !description || !price) {
             setIsValidForm(false);
-            return
+            return;
         }
         setIsValidForm(true);
-        ShopService.addProduct(product)
+        const formData = new FormData();
+        formData.append("title", title);
+        formData.append("price", price);
+        formData.append("rating", rating);
+        formData.append("description", description);
+        formData.append("productImg", fileName);
+        ShopService.addProduct(formData)
             .then(res => {
                 if (res.status === 200) {
                     setIsApiErr(false);
@@ -47,9 +48,10 @@ function AddProduct() {
 
     return (
         <form onSubmit={onSubmitForm} method="post" encType="multipart/form-data">
-             {!isValidForm ? <p className="notification text-warning">All fields are required!</p> : null}
-                {isApiFinish ? <p className="notification text-success">Successfuly updated!</p> : null}
-                {isApiErr ? <p className="notification text-warning">ERROR:Ooops, something went wrong, please try later!</p> : null}
+            {!isValidForm ? <p className="notification text-warning">All fields are required!</p> : null}
+            {isApiFinish ? <p className="notification text-success">Successfuly updated!</p> : null}
+            {isApiErr ? <p className="notification text-warning">ERROR:Ooops, something went wrong, please try
+                later!</p> : null}
             <div className="row justify-content-center">
                 <div className="col-md-6">
                     <label className="label" htmlFor="title">Product title</label>

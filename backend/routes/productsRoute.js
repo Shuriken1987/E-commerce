@@ -88,10 +88,8 @@ routes.delete("/admin/delete-product:id", (req, res) => {
 });
 
 //Admin update product
-routes.put("/admin/update-product", (req, res) => {
-    // const reqBodyId = req.body._id;
-    const product = req.body;
-    // const product = JSON.parse(req.body.product);
+routes.put("/admin/update-product", upload.single("productImg"), (req, res) => {
+    const product = JSON.parse(req.body.product);
     console.log(product)
     Products.updateOne({"_id": product._id}, {
         $set: {
@@ -99,7 +97,7 @@ routes.put("/admin/update-product", (req, res) => {
             price: product.price,
             rating: product.rating,
             description: product.description,
-            productImg: product.productImg
+            productImg: req.file.originalname
         }
     }, (err, data) => {
         if (err) {
@@ -113,9 +111,16 @@ routes.put("/admin/update-product", (req, res) => {
 });
 
 //Admin add product
-routes.post('/admin/add-product', (req, res) => {
-    const reqBody = req.body;
-    Products.findOne(reqBody, async (err, data) => {
+routes.post('/admin/add-product', upload.single("productImg"), (req, res) => {
+    // const reqBody = req.body;
+    const newProduct = new Products({
+        title: req.body.title,
+        price : req.body.price,
+        rating: req.body.rating,
+        description: req.body.description,
+        productImg: req.file.originalname
+    });
+    Products.findOne(newProduct, async (err, data) => {
         if (err) {
             const errorMsg = `Error on adding product: ${err}`;
             res.status(416).send(errorMsg);
@@ -124,7 +129,7 @@ routes.post('/admin/add-product', (req, res) => {
         if (data)
             res.status(418).send(`Product already exists: ${data.title}`);
         else {
-            const newProduct = new Products(reqBody);
+            // const newProduct = new Products(reqBody);
             const saveNewProduct = await newProduct.save();
             if (saveNewProduct){
                 res.send(saveNewProduct);

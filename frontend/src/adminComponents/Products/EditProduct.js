@@ -19,25 +19,22 @@ function EditProduct({product, showModal, updatedDb}) {
         setProductToEdit({...productToEdit, [e.target.name]: e.target.value});
     };
 
-    const onChangeFile = (e)=>{
-        console.log(e.target.files[0])
-        // console.log(e.target.files[0])
-        // setFileName(e.target.files[0]);
-        setProductToEdit({...productToEdit, [e.target.name]: e.target.files[0].name});
+    const onChangeFile = (e) => {
+        setFileName(e.target.files[0]);
     }
 
     const onSubmitForm = (e) => {
         e.preventDefault();
-        // const formData = new FormData();
-        // formData.append("product", JSON.stringify(productToEdit));
-        // formData.append("productImg", fileName);
 
-        if (!productToEdit.title || !productToEdit.productImg || !productToEdit.description || !productToEdit.price  ) {
+        if (!productToEdit.title || !productToEdit.productImg || !productToEdit.description || !productToEdit.price) {
             setIsValidForm(false);
-            return
+            return;
         }
         setIsValidForm(true);
-        ShopService.updateProduct(productToEdit)
+        const formData = new FormData();
+        formData.append("product", JSON.stringify(productToEdit));
+        formData.append("productImg", fileName);
+        ShopService.updateProduct(formData)
             .then(res => {
                 if (res.status === 200) {
                     updatedDb();
@@ -90,8 +87,8 @@ function EditProduct({product, showModal, updatedDb}) {
                         />
                         <label className="label" htmlFor="description">Description</label>
                         <textarea className="form-control" name="description" type="text" id="description"
-                               value={productToEdit.description || ''}
-                               onChange={onHandleInput}
+                                  value={productToEdit.description || ''}
+                                  onChange={onHandleInput}
                         />
                     </div>
                     <div className="footer d-flex justify-content-center my-3">
