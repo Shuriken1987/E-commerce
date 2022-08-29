@@ -13,7 +13,7 @@ function ShopProduct({product}) {
                     <div className="card">
                         {/*<FaHeart className="icons"/>*/}
                         <div className="featuredImage">
-                            <img src={`./uploads/${product.productImg}`} alt={product.title}/>
+                            <img src={`../../uploads/${product.productImg}`} alt={product.title}/>
                         </div>
                         <div className="card-body">
                             <p className="product-title">{product.title}</p>
