@@ -1,18 +1,21 @@
 const express = require('express');
 const routes = express.Router();
-const multer = require('multer');
+// const multer = require('multer');
+// const path = require('path');
+const cloudinary = require('../services/cloudinary');
+const upload = require('../services/multer');
 const Products = require('../models/productModel');
 
 //IMAGE UPLOAD
-const storage = multer.diskStorage({
-    destination: (req, file, callback) => {
-        callback(null, "../frontend/public/uploads/");
-    },
-    filename: (req, file, callback) => {
-        callback(null, file.originalname);
-    }
-});
-const upload = multer({storage: storage});
+// const storage = multer.diskStorage({
+//     // destination: (req, file, callback) => {
+//     //     callback(null, "../frontend/public/uploads/");
+//     // },
+//     filename: (req, file, callback) => {
+//         callback(null, path.extname(file.originalname));
+//     }
+// });
+// const upload = multer({storage: storage});
 
 // Get all products
 routes.get('/all-products', (req, res) => {
@@ -110,13 +113,15 @@ routes.put("/admin/update-product", upload.single("productImg"), (req, res) => {
 });
 
 //Admin add product
-routes.post('/admin/add-product', upload.single("productImg"), (req, res) => {
+routes.post('/admin/add-product', upload.single("productImg"), async (req, res) => {
+    const img = await cloudinary.uploader.upload(req.file.path);
+
     const newProduct = new Products({
         title: req.body.title,
-        price : req.body.price,
+        price: req.body.price,
         rating: req.body.rating,
         description: req.body.description,
-        productImg: req.file.originalname
+        productImg: img.secure_url
     });
     Products.findOne(newProduct, async (err, data) => {
         if (err) {
@@ -128,9 +133,9 @@ routes.post('/admin/add-product', upload.single("productImg"), (req, res) => {
             res.status(418).send(`Product already exists: ${data.title}`);
         else {
             const saveNewProduct = await newProduct.save();
-            if (saveNewProduct){
+            if (saveNewProduct) {
                 res.send(saveNewProduct);
-            }else{
+            } else {
                 res.send('Product not added');
             }
         }

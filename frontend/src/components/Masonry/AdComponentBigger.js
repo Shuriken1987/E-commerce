@@ -10,7 +10,7 @@ function AdComponentBigger({products}) {
                     return (
                         <div className={`${index % 2 === 0 ? 'modern-box modern-product reverse' : 'modern-box modern-product'}`} key={el._id}>
                             <div className="col-md-5 col-sm-6 col-xs-6">
-                                <img src={`./uploads/${el.productImg}`} className="img" alt=""/>
+                                <img src={el.productImg} className="img" alt=""/>
                             </div>
                             <div className="col-md-7 col-sm-6 col-xs-6">
                                 <h3 className="ad-heading">{el.title}</h3>

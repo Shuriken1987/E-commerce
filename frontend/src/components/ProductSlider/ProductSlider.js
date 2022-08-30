@@ -74,7 +74,7 @@ function ProductSlider() {
                     return <div className="card slider-card" key={index}>
                         <a href="">
                             <span className="product-img">
-                                <img src={`./uploads/${ad.productImg}`} alt={ad.title}/>
+                                <img src={ad.productImg} alt={ad.title}/>
                             </span>
                             <h3>{ad.title}</h3>
                             <span className="price">

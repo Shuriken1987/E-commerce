@@ -57,7 +57,7 @@ function Products() {
                     return <tr key={index}>
                         <td>{product.title}</td>
                         <td>
-                            <img src={`../uploads/${product.productImg}`} alt={product.title}
+                            <img src={product.productImg} alt={product.title}
                                  className="admin-product-img"/>
                         </td>
                         <td>{product.price}, 00 kr</td>

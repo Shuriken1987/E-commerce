@@ -46,7 +46,7 @@ function ShopCart() {
         return cart.map((item, index) => {
             return <div className="shop-cart-item row mt-3" key={index}>
               <div className="col-md-3">
-                 <img src={`../../uploads/${item.productImg}`} alt=""/>
+                 <img src={item.productImg} alt=""/>
               </div>
                 <div className="col-md-8">
                   <h5>{item.title}</h5>
