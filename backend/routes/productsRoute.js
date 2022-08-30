@@ -5,6 +5,7 @@ const routes = express.Router();
 const cloudinary = require('../services/cloudinary');
 const upload = require('../services/multer');
 const Products = require('../models/productModel');
+const {json} = require("express");
 
 //IMAGE UPLOAD
 // const storage = multer.diskStorage({
@@ -82,24 +83,31 @@ routes.get("/search/:searchTerm", (req, res) => {
     })
 })
 //Admin  delete product by Id
-routes.delete("/admin/delete-product:id", (req, res) => {
-    const params = req.params.id;
-    Products.deleteOne({_id: params}, async (error) => {
-        if (error) throw error;
-        await res.send("Product deleted");
-    });
+routes.delete("/admin/delete-product:id", async (req, res) => {
+    // const params = req.params.id;
+    try {
+        let product = await Products.findById(req.params.id);
+        await cloudinary.uploader.destroy(product.cloudinary_id);
+        await product.remove();
+        res.json(product);
+    } catch (err) {
+        console.log(err)
+    }
 });
 
 //Admin update product
-routes.put("/admin/update-product", upload.single("productImg"), (req, res) => {
-    const product = JSON.parse(req.body.product);
+routes.put("/admin/update-product", upload.single("productImg"), async (req, res) => {
+    const product = req.body;
+    cloudinary.uploader.destroy(product.cloudinary_id);
+    const img = await cloudinary.uploader.upload(req.file.path);
     Products.updateOne({"_id": product._id}, {
         $set: {
             title: product.title,
             price: product.price,
             rating: product.rating,
             description: product.description,
-            productImg: req.file.originalname
+            productImg: img.secure_url || product.productImg,
+            cloudinary_id: img.public_id || product.cloudinary_id,
         }
     }, (err, data) => {
         if (err) {
@@ -121,7 +129,8 @@ routes.post('/admin/add-product', upload.single("productImg"), async (req, res) 
         price: req.body.price,
         rating: req.body.rating,
         description: req.body.description,
-        productImg: img.secure_url
+        productImg: img.secure_url,
+        cloudinary_id: img.public_id
     });
     Products.findOne(newProduct, async (err, data) => {
         if (err) {

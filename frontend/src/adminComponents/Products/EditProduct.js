@@ -32,7 +32,11 @@ function EditProduct({product, showModal, updatedDb}) {
         }
         setIsValidForm(true);
         const formData = new FormData();
-        formData.append("product", JSON.stringify(productToEdit));
+        // formData.append("product", JSON.stringify(productToEdit));
+        formData.append("title", productToEdit.title);
+        formData.append("price", productToEdit.price);
+        formData.append("rating", productToEdit.rating);
+        formData.append("description", productToEdit.description);
         formData.append("productImg", fileName);
         ShopService.updateProduct(formData)
             .then(res => {

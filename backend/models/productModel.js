@@ -7,7 +7,7 @@ const productSchema = new mongoose.Schema({
     category: {type: String},
     rating: {type: Number},
     productImg: {type: String,required: Boolean},
-    cloudinary_id: {type: String}
+    cloudinary_id: {type: String},
 });
 
 const productModel = mongoose.model('product',productSchema);
