@@ -32,11 +32,7 @@ function EditProduct({product, showModal, updatedDb}) {
         }
         setIsValidForm(true);
         const formData = new FormData();
-        // formData.append("product", JSON.stringify(productToEdit));
-        formData.append("title", productToEdit.title);
-        formData.append("price", productToEdit.price);
-        formData.append("rating", productToEdit.rating);
-        formData.append("description", productToEdit.description);
+        formData.append("product", JSON.stringify(productToEdit));
         formData.append("productImg", fileName);
         ShopService.updateProduct(formData)
             .then(res => {
@@ -76,7 +72,7 @@ function EditProduct({product, showModal, updatedDb}) {
                                onChange={onHandleInput}
                         />
                         <label className="label" htmlFor="productImg">Product image</label>
-                        <input className="form-control" name="productImg" type="file" id="productImg"
+                        <input className="form-control" filename="productImg" type="file" id="productImg"
                                onChange={onChangeFile}
                         />
                         <label className="label" htmlFor="price">Price</label>

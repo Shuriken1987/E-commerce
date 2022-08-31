@@ -97,27 +97,33 @@ routes.delete("/admin/delete-product:id", async (req, res) => {
 
 //Admin update product
 routes.put("/admin/update-product", upload.single("productImg"), async (req, res) => {
-    const product = req.body;
-    cloudinary.uploader.destroy(product.cloudinary_id);
-    const img = await cloudinary.uploader.upload(req.file.path);
-    Products.updateOne({"_id": product._id}, {
-        $set: {
-            title: product.title,
-            price: product.price,
-            rating: product.rating,
-            description: product.description,
-            productImg: img.secure_url || product.productImg,
-            cloudinary_id: img.public_id || product.cloudinary_id,
-        }
-    }, (err, data) => {
-        if (err) {
-            console.log(err);
-            const errorMsg = `Error on updating product: ${err}`;
-            res.send(errorMsg);
-        } else {
-            res.send(data);
-        }
-    });
+    try {
+        const product = await JSON.parse(req.body.product);
+        console.log(product)
+        await cloudinary.uploader.destroy(product.cloudinary_id);
+        const img = await cloudinary.uploader.upload(req.file.path);
+        Products.updateOne({"_id": product._id}, {
+            $set: {
+                title: product.title,
+                price: product.price,
+                rating: product.rating,
+                description: product.description,
+                productImg: img.secure_url || product.productImg,
+                cloudinary_id: img.public_id || product.cloudinary_id,
+            }
+        }, (err, data) => {
+            if (err) {
+                console.log(err);
+                const errorMsg = `Error on updating product: ${err}`;
+                res.send(errorMsg);
+            } else {
+                res.send(data);
+            }
+        });
+    } catch (err) {
+        console.log(err)
+    }
+
 });
 
 //Admin add product
