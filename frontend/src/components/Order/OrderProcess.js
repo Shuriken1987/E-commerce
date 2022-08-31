@@ -58,7 +58,7 @@ function PaymentMessage({ msg }) {
             ShopService.ordered(order)
                 .then(response => {
                     if (response.status === 200) {
-                        console.log(response);
+                        // console.log(response);
                     }
                 })
                 .catch(err => {

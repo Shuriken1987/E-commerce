@@ -20,7 +20,7 @@ function OrderProcessStepTree({ sk }) {
             confirmParams: {
                 // Make sure to change this to your payment completion page
                 // return_url: "http://localhost:3000/order",
-                return_url: "https://food-florist-hbg.herokuapp.com/order",
+                return_url: "https://food-florist-hbg.netlify.app//order",
             },
         });
     }
@@ -38,22 +38,17 @@ function OrderProcessStepTree({ sk }) {
 function StripeElements() {
     const [sk, setSk] = useState('');
     const { cart } = useSelector(state => state.shopCartStore);
-    // const {currency} = useSelector(state => state.currencyStore)
     const options = {
         clientSecret: sk
     };
 
     useEffect(() => {
-        // console.log(cart);
-        // let currToLow = currency.toLowerCase()
         let sumPrice = cart.reduce((state, item) => {
             return state + item.totalPrice;
         }, 0)
 
-        // console.log(sumPrice);
         ShopService.initPayment({ amount: sumPrice})
             .then(response => {
-                // console.log(response.data);
                 setSk(response.data)
             })
             .catch(err => console.log(err))
