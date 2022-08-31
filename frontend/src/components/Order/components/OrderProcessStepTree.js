@@ -20,7 +20,7 @@ function OrderProcessStepTree({ sk }) {
             confirmParams: {
                 // Make sure to change this to your payment completion page
                 // return_url: "http://localhost:3000/order",
-                return_url: "https://food-florist-hbg.netlify.app//order",
+                return_url: "https://food-florist-hbg.netlify.app/order",
             },
         });
     }
