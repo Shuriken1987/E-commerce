@@ -30,12 +30,10 @@ const orderProcessSlice = createSlice({
     },
     reducers: {
         //action
-        handleCurrentStep: (state,
-        action) => {
+        handleCurrentStep: (state,action) => {
             state.orderProcess.currentStep = action.payload;
         },
-        updateStepTwoForm: (state,
-        action) => {
+        updateStepTwoForm: (state,action) => {
             let payload = action.payload;
 
             state.orderProcess.stepTwo.isValid = !Object.values(payload).some(item => !item);

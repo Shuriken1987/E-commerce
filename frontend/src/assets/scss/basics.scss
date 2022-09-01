@@ -6,15 +6,8 @@ basic styles
     padding: 0;
     box-sizing: border-box;
 }
-//body {
-//    font-family: $fontFamily;
-//    font-size: $fontSize;
-//    line-height: 1.6;
-//    color: $gray;
-//}
 a{
     text-decoration: none;
-    //transition: $transition;
 }
 ul{
     list-style: none;
@@ -30,4 +23,11 @@ h6 {
       height: 2px;
       margin: 20px 0 30px 0;
     }
+  }
+
+// button on add to cart
+  .add-to-cart{
+    margin: 20px auto;
+    color: $secondFontColor;
+    transition: $transition;
   }
