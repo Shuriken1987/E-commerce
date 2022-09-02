@@ -1,5 +1,4 @@
 import Masonry from "../../components/Masonry/Masonry";
-// import HomeSlider from "../../components/HomeSlider/HomeSlider";
 import Testimonial from "../../components/Testimonial/Testimonial";
 import Header from "../../components/Header/Header";
 import Subscribe from "../../components/Subscribe/Subscribe";
@@ -11,9 +10,7 @@ function Home() {
 
     return (
         <>
-            {/*<HomeSlider/>*/}
             <Header/>
-
             <div className="container">
                 <div className="home-section-wrapper my-5">
                     <Masonry changeSide={false}/>
@@ -39,7 +36,6 @@ function Home() {
             <div className="container my-5">
                 <Testimonial/>
             </div>
-
         </>)
 }
 

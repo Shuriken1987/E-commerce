@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from 'react';
-// import HeaderProduct from "../../components/HeaderProduct/HeaderProduct";
 import SubscribeService from "../../services/subscribeService";
 import {useNavigate, useParams} from "react-router-dom";
 // import Loader from "../../components/Loader/Loader";
@@ -37,7 +36,6 @@ function UnsubscribePage() {
 
     return (
         <div className="unsubscribe-wrapper">
-            {/*<HeaderProduct productInfo={productInfo}/>*/}
             <div className="container py-5 text-center">
                 {isFinished ? <h2>{responseInfo.msg}</h2> : null}
             </div>

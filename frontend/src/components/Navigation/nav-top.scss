@@ -113,7 +113,6 @@
       align-items: center;
 
       .info-account {
-        //flex: 1;
         display: flex;
         justify-content: flex-end;
 
@@ -136,16 +135,6 @@
         }
       }
     }
-
-    //@media(max-width: 767px) {
-    //  flex-direction: column;
-    //  .middle-logo {
-    //   justify-content: center;
-    //  }
-    //  .middle-cart{
-    //    justify-content: center;
-    //  }
-    //}
   }
 @media(max-width: 767px) {
   .top {

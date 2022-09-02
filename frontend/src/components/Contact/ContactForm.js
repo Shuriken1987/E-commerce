@@ -175,7 +175,7 @@ function ContactForm() {
 
           <input
             type="submit"
-            className="btn btn-primary"
+            className="btn btn-dark add-to-cart"
             value="SEND A MESSAGE"
           />
         </form>

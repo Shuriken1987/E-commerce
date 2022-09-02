@@ -72,25 +72,23 @@ function ProductSlider() {
             <Slider {...settings}>
                 {ads.map((ad, index) => {
                     return <div className="card slider-card" key={index}>
-                        <a href="">
                             <span className="product-img">
                                 <img src={ad.productImg} alt={ad.title}/>
                             </span>
                             <h3>{ad.title}</h3>
                             <span className="price">
                                 <span className="amount">
-                                    {/*<ChangeCurrency adConvertPrice={ad.price}/>*/}
                                     {ad.price},00 kr
                                 </span>
                             </span>
-                        </a>
                         <p className="hover-content">
                             <a href="" className="add-to-cart" onClick={e => {
                                 e.preventDefault();
                                 dispatch(addToCart(ad));
                             }}><i className="fa fa-shopping-cart"></i>Add to cart</a> <br/>
-                            <Link to={routeConfig.PRODUCT_SHOP.realUrl(ad._id)} className="view-product">View
-                                product</Link>
+                            <Link to={routeConfig.PRODUCT_SHOP.realUrl(ad._id)} className="view-product">
+                                View product
+                            </Link>
                         </p>
                     </div>
                 })}

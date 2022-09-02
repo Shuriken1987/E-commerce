@@ -31,6 +31,7 @@ function WhoWeAre() {
                 </div>
             </div>
         </>
-)
+    )
 }
+
 export default WhoWeAre;

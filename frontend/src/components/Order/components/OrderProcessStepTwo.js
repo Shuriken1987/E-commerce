@@ -36,7 +36,6 @@ function OrderProcessStepTwo() {
     };
 
     const handleCheckboxChange = e => {
-        console.log(e);
         let newForm = {...form};
         newForm[e.target.id] = e.target.checked;
         dispatch(updateStepTwoForm(newForm));

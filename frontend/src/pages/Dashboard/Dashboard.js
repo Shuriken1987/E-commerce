@@ -32,7 +32,6 @@ function Dashboard({isNav}) {
                        <Outlet/>
                 </div>
             </div>
-
         </>
     )
 }
