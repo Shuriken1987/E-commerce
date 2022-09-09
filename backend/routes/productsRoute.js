@@ -36,14 +36,14 @@ routes.get('/all-products', (req, res) => {
 // Get random products
 routes.get('/random-products/:numberOfAds', (req, res) => {
     let params = req.params.numberOfAds;
-    Products.find((error, data) => {
+    Products.find(async (error, data) => {
         if (error) {
             console.log(error);
             res.send("ERROR. TRY AGAIN.");
             return;
         }
         if (data) {
-            let copyData = [...data];
+            let copyData = await [...data];
             let randAds = [];
             for (let i = 0; i < params; i++) {
                 let rand = Math.floor(Math.random() * copyData.length);
