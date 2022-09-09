@@ -43,7 +43,7 @@ routes.get('/random-products/:numberOfAds', (req, res) => {
             return;
         }
         if (data) {
-            let copyData = await [...data];
+            let copyData = [...data];
             let randAds = [];
             for (let i = 0; i < params; i++) {
                 let rand = Math.floor(Math.random() * copyData.length);
