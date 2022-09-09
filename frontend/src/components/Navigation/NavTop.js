@@ -74,6 +74,15 @@ function NavTop() {
                     </Link>
                 </li>
                 <li>
+                    <Link
+                        to={routeConfig.MY_ORDERS.url}
+                        className="dropdown-item user-dropdown"
+                    >
+                        <i className="bi bi-box me-2"></i>
+                        My orders
+                    </Link>
+                </li>
+                <li>
                     <Link to="/my-ads" className="dropdown-item" href="/">
                         <i className="bi bi-heart me-2"></i>
                         Wishlist

@@ -9,8 +9,9 @@ routes.post('/ordered', async (req, res) => {
     res.send(saveNewOrder);
 });
 
-routes.get('/get-orders', (req, res) => {
-    Orders.find((error, data) => {
+routes.get('/my-orders/:userId', (req, res) => {
+    let userId = req.params.userId;
+    Orders.find({userID: userId},(error, data) => {
         if (error) {
             res.send("ERROR. TRY AGAIN.");
             return;
@@ -21,6 +22,6 @@ routes.get('/get-orders', (req, res) => {
             res.send("Product dont found")
         }
     })
-})
+});
 
 module.exports = routes;

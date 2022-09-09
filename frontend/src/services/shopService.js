@@ -24,6 +24,9 @@ class ShopService {
     static ordered(order) {
         return axios.post("/api/orders/ordered", order);
     }
+    static userOrders(userId){
+        return axios.get(`/api/orders/my-orders/${userId}`);
+    }
 
     static getAllOrders(){
         return axios.get("/api/orders/get-orders");

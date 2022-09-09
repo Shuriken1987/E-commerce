@@ -16,6 +16,7 @@ import Home from "./pages/Home/Home";
 import AuthPage from "./pages/AuthPage/AuthPage";
 import ActivateUser from "./pages/ActivateUser/ActivateUser";
 import UserProfile from "./pages/UserProfile/UserProfile";
+import MyOrders from "./pages/MyOrders/MyOrders";
 import Shop from "./pages/Shop/Shop";
 import SingleProduct from "./pages/SingleProductPage/SingleProduct";
 import Order from "./pages/Order/Order";
@@ -34,8 +35,8 @@ import Subscribers from "./adminComponents/Subscribers/Subscribers";
 import Orders from "./adminComponents/Orders/Orders";
 
 
-// axios.defaults.baseURL = 'http://localhost:5000';
-axios.defaults.baseURL = 'https://food-florist-hbg.herokuapp.com/';
+axios.defaults.baseURL = 'http://localhost:5000';
+// axios.defaults.baseURL = 'https://food-florist-hbg.herokuapp.com/';
 
 
 function App() {
@@ -80,6 +81,7 @@ function App() {
                     <Route path={routeConfig.UNSUBSCRIBE.url} element={<UnsubscribePage/>}/>
                     <Route path={routeConfig.CONTACT.url} element={<Contact/>}/>
                     <Route path={routeConfig.ABOUT.url} element={<AboutUs/>}/>
+                    <Route path={routeConfig.MY_ORDERS.url} element={<MyOrders/>}/>
                     <Route path="*" element={<ErrorPage/>}/>
                     {/*ADMIN PART*/}
                     <Route path={routeConfig.DASHBOARD.url}
