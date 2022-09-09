@@ -35,8 +35,8 @@ import Subscribers from "./adminComponents/Subscribers/Subscribers";
 import Orders from "./adminComponents/Orders/Orders";
 
 
-axios.defaults.baseURL = 'http://localhost:5000';
-// axios.defaults.baseURL = 'https://food-florist-hbg.herokuapp.com/';
+//axios.defaults.baseURL = 'http://localhost:5000';
+axios.defaults.baseURL = 'https://food-florist-hbg.herokuapp.com/';
 
 
 function App() {
