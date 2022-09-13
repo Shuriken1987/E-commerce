@@ -12,6 +12,8 @@ import ShopService from "../../services/shopService";
 import Succeeded from "./components/paymentMessages/Succeeded";
 import Processing from "./components/paymentMessages/Processing";
 import Error from "./components/paymentMessages/Error";
+import moment from "moment";
+
 
 function OrderProcess() {
 
@@ -50,6 +52,7 @@ function PaymentMessage({ msg }) {
     const navigate = useNavigate();
     const [order, setOrder] = useState({
         userID: user._id,
+        order_date: moment().format('DD-MM-YYYY'),
         order: cart
     });
 

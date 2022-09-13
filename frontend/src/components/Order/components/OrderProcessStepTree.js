@@ -11,7 +11,8 @@ function OrderProcessStepTree({ sk }) {
     const stripe = useStripe();
     const elements = useElements();
 
-    const submitPayment = async () => {
+    const submitPayment = async (e) => {
+        e.preventDefault();
         if (!stripe || !elements || !sk)
             return;
 

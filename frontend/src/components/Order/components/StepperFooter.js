@@ -43,12 +43,10 @@ function StepperFooter({ submitPayment }) {
         <>
             <div className={`w-100 d-flex my-5 ${currentStep > 1 ? 'justify-content-between' : 'justify-content-end'}`}>
                 {currentStep > 1 && <button className="btn btn-dark add-to-cart" onClick={e => prev(-1)}>prev</button>}
-                {currentStep === 3 ? <button className="btn btn-dark add-to-cart" onClick={e => submitPayment()}>Submit</button> : <button className="btn btn-dark add-to-cart" onClick={e => next()}>next</button>}
-
+                {currentStep === 3 ? <button className="btn btn-dark add-to-cart" onClick={e => submitPayment(e)}>Submit</button> : <button className="btn btn-dark add-to-cart" onClick={e => next()}>next</button>}
             </div>
             <ToastContainer />
         </>
-
     )
 }
 

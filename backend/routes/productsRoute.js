@@ -36,9 +36,8 @@ routes.get('/all-products', (req, res) => {
 // Get random products
 routes.get('/random-products/:numberOfAds', (req, res) => {
     let params = req.params.numberOfAds;
-    Products.find((error, data) => {
+    Products.find( (error, data) => {
         if (error) {
-            console.log(error);
             res.send("ERROR. TRY AGAIN.");
             return;
         }

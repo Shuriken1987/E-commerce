@@ -2,12 +2,8 @@ const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv').config();
 const cors = require('cors');
-// const nodemailer = require('nodemailer');
 const dbConfig = require('./config/dbConfig');
-// const connectDB = require('./config/db');
 const serverConfig = require("./config/serverConfig");
-// const Users = require('./models/userModel');
-// const Products = require('./models/productModel');
 const userRoute = require('./routes/userRoute');
 const productsRoute = require('./routes/productsRoute');
 const paymentRoute = require('./routes/paymentRoute');
@@ -15,9 +11,8 @@ const clients = require('./models/testimonialClients.json');
 const subscribeRoute = require('./routes/subscribeRoute');
 const commentsRoute = require('./routes/commentRoute');
 const ordersRoute = require('./routes/orderRoute');
+const contactRoute = require('./routes/contactRoute');
 
-
-// connectDB();
 const app = express();
 
 mongoose.connect(dbConfig.MONGODB_URL)
@@ -36,15 +31,14 @@ app.use('/api/payment', paymentRoute);
 app.use("/api/subscribe", subscribeRoute);
 app.use("/api/comments", commentsRoute);
 app.use("/api/orders", ordersRoute);
-
-
-
+app.use("/api/contact", contactRoute);
 
 
 // getting clients from models/clients.json
 app.get("/api/home", (req, res) => {
     res.send(clients);
 });
+
 
 //ServerConfig
 app.listen(serverConfig.port, err => {

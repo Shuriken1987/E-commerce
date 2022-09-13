@@ -92,9 +92,9 @@ function ContactForm() {
       })
       .finally(() => {
         setIsApiFinished(true);
-        setTimeout(function () {
-          navigate(routeConfig.SHOP.url);
-        }, 3000);
+        // setTimeout(function () {
+        //   navigate(routeConfig.SHOP.url);
+        // }, 3000);
       });
   };
 
