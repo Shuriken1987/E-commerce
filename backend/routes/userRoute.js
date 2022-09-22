@@ -3,7 +3,8 @@ const routes = express.Router();
 const Users = require('../models/userModel');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
-// const nodemailer = require("nodemailer");
+const nodemailer = require("nodemailer");
+const Process = require("process");
 
 
 // User login
@@ -15,7 +16,7 @@ routes.post('/login', async (req, res) => {
             res.status(416).send(errorMsg);
             return;
         }
-        if (data) {
+        if (data.isActive === 'true') {
             bcrypt.compare(password, data.password, async (err, isMatch) => {
                 if (isMatch) {
                     // data.token = generateToken(data._id);
@@ -23,6 +24,8 @@ routes.post('/login', async (req, res) => {
                 } else
                     res.status(400).send('Wrong password.');
             })
+        }else if(data.isActive === 'false'){
+            res.status(417).send('Account is not activated, please check your email.');
         } else
             res.status(419).send('User not found.');
     });
@@ -54,50 +57,43 @@ routes.post('/register', async (req, res) => {
                 res.send('User not registered');
             }
 
-            // let testAccount = await nodemailer.createTestAccount();
-            //
-            // let transporter = nodemailer.createTransport({
-            //     host: "smtp.ethereal.email",
-            //     port: 587,
-            //     secure: false, // true for 465, false for other ports
-            //     auth: {
-            //         user: testAccount.user, // generated ethereal user
-            //         pass: testAccount.pass, // generated ethereal password
-            //     },
-            // });
-            //
-            // let info = await transporter.sendMail({
-            //     from: '"Fred Foo 👻" <office@onlineShop.com>', // sender address
-            //     to: reqBody.email, // list of receivers
-            //     subject: "Activate account", // Subject line
-            //     text: "", // plain text body
-            //     html: `
-            // <h1>Activate account</h1>
-            // <p>Dear, ${reqBody.username}</p>
-            // <p>Please click on link bellow to activate your account</p>
-            // <a href="http://localhost:3000/user-activate/${saveNewUser._id.toString()}">Activate link</a>
-            // `, // html body
-            // });
-            //
-            //
-            // console.log("Preview URL:", nodemailer.getTestMessageUrl(info));
+            let testAccount = await nodemailer.createTestAccount();
 
-            // res.send(saveNewUser || 'User not registered');
+            let transporter = nodemailer.createTransport({
+                service: 'gmail',
+                auth: {
+                    user: "foodfloristhbg@gmail.com",
+                    pass: process.env.GMAIL_PASS,
+                },
+            });
+
+            let info = await transporter.sendMail({
+                from: "foodfloristhbg@gmail.com", // sender address
+                to: reqBody.email, // list of receivers
+                subject: "Activate account", // Subject line
+                text: "", // plain text body
+                html: `
+            <h1>Activate account</h1>
+            <p>Dear, ${reqBody.username}</p>
+            <p>Please click on link bellow to activate your account</p>
+             <a href="https://food-florist-hbg.netlify.app/user-activate/${saveNewUser._id.toString()}">Activate link</a>
+            `, // html body
+            });
         }
     });
 });
 
 // Activate user
-// routes.post('/complete-registration',(req,res)=>{
-//     const userId = req.body.userId;
-//     Users.updateOne({_id: userId},{isActive: true}, (err,result)=>{
-//         if (err) {
-//             res.send(err);
-//         } else {
-//             res.send(result);
-//         }
-//     });
-// });
+routes.post('/complete-registration',(req,res)=>{
+    const userId = req.body.userId;
+    Users.updateOne({_id: userId},{isActive: true}, (err,result)=>{
+        if (err) {
+            res.send(err);
+        } else {
+            res.send(result);
+        }
+    });
+});
 // Update user by Id
 routes.put("/profile", (req, res) => {
     let id = req.body._id;

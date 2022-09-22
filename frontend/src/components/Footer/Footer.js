@@ -1,12 +1,14 @@
 import {
     FaFacebookF,
-    FaGooglePlusG,
+    FaGooglePlusG, FaInstagram, FaInstagramSquare,
     FaLinkedinIn,
     FaMailBulk,
     FaPhoneAlt,
     FaRegAddressCard,
     FaTwitter
 } from "react-icons/fa";
+import {Link} from "react-router-dom";
+import {routeConfig} from "../../config/routeConfig";
 
 function Footer() {
 
@@ -17,23 +19,27 @@ function Footer() {
                     <div className="row">
                         <div className="col-md-12 text-center">
                             <div className="footer-title">
-                                <a href="/">
+                                <a href="#">
                                     <span>FoodFlorist</span>
                                     <span>Helsingborg</span>
                                 </a>
                             </div>
 
                             <div className="footer-social-links">
-                                <a href="/">
+                                <a href="https://www.facebook.com/Food-Florist-Helsingborg-102803464926190"
+                                   target="_blank"
+                                >
                                     <FaFacebookF/>
                                 </a>
-                                <a href="/">
+                                <a href="#">
                                     <FaTwitter/>
                                 </a>
-                                <a href="/">
-                                    <FaGooglePlusG/>
+                                <a href="https://www.instagram.com/foodfloristhelsingborg"
+                                   target="_blank"
+                                >
+                                    <FaInstagramSquare/>
                                 </a>
-                                <a href="/">
+                                <a href="#">
                                     <FaLinkedinIn/>
                                 </a>
                             </div>
@@ -68,19 +74,19 @@ function Footer() {
                             <h6>Useful links</h6>
                             <ul>
                                 <li>
-                                    <a className="footer-links" href="/"> About Us </a>
+                                    <Link className="footer-links useful-links" to={routeConfig.ABOUT.url}> About Us </Link>
                                 </li>
                                 <li>
-                                    <a className="footer-links" href="/"> Our Products </a>
+                                    <Link className="footer-links useful-links" to={routeConfig.SHOP.url}> Our Products </Link>
                                 </li>
                                 <li>
-                                    <a className="footer-links" href="/"> Customer Support </a>
+                                    <Link className="footer-links useful-links" to={routeConfig.HOME.url}> Customer Support </Link>
                                 </li>
                                 <li>
-                                    <a className="footer-links" href="/"> Our Sitemap </a>
+                                    <Link className="footer-links useful-links" to={routeConfig.HOME.url}> Our Sitemap </Link>
                                 </li>
                                 <li>
-                                    <a className="footer-links" href="/"> Contact Us </a>
+                                    <Link className="footer-links useful-links" to={routeConfig.CONTACT.url}> Contact Us </Link>
                                 </li>
                             </ul>
                         </div>
@@ -89,7 +95,7 @@ function Footer() {
             </footer>
 
             <section className="bottomBar text-center text-white bg-dark  p-3">
-                <p className="mb-0">&copy; 2021. Food Florist Helsingborg. All right reserved | Design by Milan
+                <p className="mb-0">&copy; 2022. Food Florist Helsingborg. All right reserved | Design by Milan
                     Stanojevic.</p>
             </section>
         </>

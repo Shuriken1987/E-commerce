@@ -94,9 +94,9 @@ function Register({showLoginForm}) {
 
                 <button className="btn btn-success px-5 d-block mx-auto">Sign up</button>
                 <p className="info">Already have account ? <a type="button" onClick={loginForm} className="text-info link">Sign in</a></p>
-                {!isValidForm && <p>All fields are required!</p>}
-                {isApiFinish && <p>You are registered!</p>}
-                {isApiErr && <p>ERROR: Something wrong with network, please try later!</p>}
+                {!isValidForm && <p className="text-warning">All fields are required!</p>}
+                {isApiFinish && <h5 className="text-success">A verification email has been sent to {userData.email}</h5>}
+                {isApiErr && <p className="text-danger">ERROR: Something wrong with network, please try later!</p>}
             </form>
         </>
     );

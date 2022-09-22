@@ -18,6 +18,15 @@
     padding: 10px 0;
     font-size: 20px;
   }
+  .add-to-wishlist{
+    font-size: 40px;
+    cursor: pointer;
+    margin-left: 20px;
+    &:hover{
+      transition: $transition;
+      color: $yellow;
+    }
+  }
   .product-descriptionn{
     font-size: 24px;
   }

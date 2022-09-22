@@ -45,21 +45,21 @@ function ShopCart() {
     const shopCartSumLayout = () => {
         return cart.map((item, index) => {
             return <div className="shop-cart-item row mt-3" key={index}>
-              <div className="col-md-3">
-                 <img src={item.productImg} alt=""/>
-              </div>
+                <div className="col-md-3">
+                    <img src={item.productImg} alt=""/>
+                </div>
                 <div className="col-md-8">
-                  <h5>{item.title}</h5>
-                   {item.quantity > 0 && <p className="quantity">Quantity:
-                       <FaMinusCircle className="mx-2"
-                                      onClick={() => handleShopCartCount(index, false)}
-                       />
-                       {item.quantity}
-                   <FaPlusCircle className="mx-2"
-                                 onClick={() => handleShopCartCount(index, true)}
-                   />
-                   </p>}
-                   <p>{item.totalPrice},00 kr</p>
+                    <h5>{item.title}</h5>
+                    {item.quantity > 0 && <p className="quantity">Quantity:
+                        <FaMinusCircle className="mx-2"
+                                       onClick={() => handleShopCartCount(index, false)}
+                        />
+                        {item.quantity}
+                        <FaPlusCircle className="mx-2"
+                                      onClick={() => handleShopCartCount(index, true)}
+                        />
+                    </p>}
+                    <p>{item.totalPrice},00 kr</p>
                 </div>
                 <div className="col-md-1 remove-icon-wrapper">
                     <FaTrashAlt onClick={() => removeItemFromCart(index)}/>

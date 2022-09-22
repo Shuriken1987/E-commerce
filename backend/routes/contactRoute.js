@@ -10,7 +10,6 @@ routes.post('/send-message', async (req, res) => {
     // * ADD TO DATABASE
     const newMessage = new Emails(reqBody);
     const saveNewMessage = await newMessage.save();
-    // console.log(saveNewMessage);
 
     // * NODEMAILER
     let testAccount = await nodemailer.createTestAccount();
@@ -28,7 +27,7 @@ routes.post('/send-message', async (req, res) => {
     // send mail with defined transport object
     let info = await transporter.sendMail({
         from: `${reqBody.firstName} ${reqBody.lastName} <${reqBody.email}>`, // sender address
-        to: "onlineShop, office@onlineShop.com", // list of receivers
+        to: "Food Florist Helsingborg, foodfloristhbg@gmail.com", // list of receivers
         // subject: "", // Subject line
         // text: "Hello world?", // plain text body
         html: `
@@ -38,10 +37,6 @@ routes.post('/send-message', async (req, res) => {
         `, // html body
 
     });
-
-    // Preview only available when sending through an Ethereal account
-    console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
-
     res.send();
 });
 

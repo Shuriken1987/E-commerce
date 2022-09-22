@@ -17,17 +17,14 @@ class Mailer {
         let testAccount = await nodemailer.createTestAccount();
 
         let transporter = nodemailer.createTransport({
-            host: mailConfig.host,
-            port: mailConfig.port,
-            secure: mailConfig.secure,
+            service: mailConfig.service,
             auth: {
-                user: testAccount.user, // generated ethereal user
-                pass: testAccount.pass, // generated ethereal password
+                user: mailConfig.auth.user,
+                pass: mailConfig.auth.pass,
             },
         });
 
         let info = await transporter.sendMail(this.mailOptions);
-        console.log("Preview URL:", nodemailer.getTestMessageUrl(info));
         return nodemailer.getTestMessageUrl(info)
     }
 

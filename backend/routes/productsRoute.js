@@ -36,7 +36,7 @@ routes.get('/all-products', (req, res) => {
 // Get random products
 routes.get('/random-products/:numberOfAds', (req, res) => {
     let params = req.params.numberOfAds;
-    Products.find( (error, data) => {
+    Products.find((error, data) => {
         if (error) {
             res.send("ERROR. TRY AGAIN.");
             return;
@@ -96,19 +96,21 @@ routes.delete("/admin/delete-product:id", async (req, res) => {
 
 //Admin update product
 routes.put("/admin/update-product", upload.single("productImg"), async (req, res) => {
+    let img = '';
     try {
         const product = await JSON.parse(req.body.product);
-        console.log(product)
-        await cloudinary.uploader.destroy(product.cloudinary_id);
-        const img = await cloudinary.uploader.upload(req.file.path);
+        if (req.file !== undefined) {
+            await cloudinary.uploader.destroy(product.cloudinary_id);
+            img = await cloudinary.uploader.upload(req.file.path);
+        }
         Products.updateOne({"_id": product._id}, {
             $set: {
                 title: product.title,
                 price: product.price,
                 rating: product.rating,
                 description: product.description,
-                productImg: img.secure_url || product.productImg,
-                cloudinary_id: img.public_id || product.cloudinary_id,
+                productImg: img.secure_url ? img.secure_url : product.productImg,
+                cloudinary_id: img.public_id ? img.public_id : product.cloudinary_id,
             }
         }, (err, data) => {
             if (err) {

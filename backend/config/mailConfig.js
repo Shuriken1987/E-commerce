@@ -1,12 +1,10 @@
 const mailConfig = {
-    fromName:"online-shop",
-    fromMail:"office@onlineShop.com",
-    host:"smtp.ethereal.email",
-    port:587,
-    secure: false, // true for 465, false for other ports
+    fromName:"Food Florist Helsingborg",
+    fromMail:"foodfloristhbg@gmail.com",
+    service: 'gmail',
     auth:{
-        user:"username",
-        pass:"password"
+        user: "foodfloristhbg@gmail.com",
+        pass: process.env.GMAIL_PASS,
     }
 }
 

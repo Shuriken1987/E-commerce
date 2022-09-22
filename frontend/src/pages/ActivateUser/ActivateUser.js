@@ -30,8 +30,8 @@ function ActivateUser() {
 
     const responseMsgLayout = () => {
         return isActivated ?
-            <p>Successfully activated.</p> :
-            <p>User not activated.</p>
+            <h3 className="activate-user">Successfully activated.</h3> :
+            <h3 className="activate-user">User not activated.</h3>
     };
 
     return (

@@ -37,7 +37,7 @@ import Orders from "./adminComponents/Orders/Orders";
 
 
 
-//axios.defaults.baseURL = 'http://localhost:5000';
+// axios.defaults.baseURL = 'http://localhost:5000';
 axios.defaults.baseURL = 'https://food-florist-hbg.herokuapp.com/';
 
 
@@ -77,8 +77,8 @@ function App() {
                     <Route path={routeConfig.HOME.url} element={<Home/>}/>
                     <Route path={routeConfig.SHOP.url} element={<Shop/>}/>
                     <Route path={routeConfig.PRODUCT_SHOP.url} element={<SingleProduct/>}/>
-                    {/*<Route path={routeConfig.USER_ACTIVATE.url} element={<ActivateUser/>}/>*/}
-                    {user?.username &&<Route path={routeConfig.USER_PROFILE.url} element={<UserProfile/>}/>}
+                    <Route path={routeConfig.USER_ACTIVATE.url} element={<ActivateUser/>}/>
+                    <Route path={routeConfig.USER_PROFILE.url} element={<UserProfile/>}/>
                     <Route path={routeConfig.ORDER.url} element={<Order/>}/>
                     <Route path={routeConfig.UNSUBSCRIBE.url} element={<UnsubscribePage/>}/>
                     <Route path={routeConfig.CONTACT.url} element={<Contact/>}/>

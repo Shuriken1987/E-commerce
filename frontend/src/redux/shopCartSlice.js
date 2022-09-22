@@ -18,7 +18,7 @@ const shopCartSlice = createSlice({
             });
             if (foundItem) {
                 state.cart[foundItemIndex].quantity = state.cart[foundItemIndex].quantity + 1;
-                state.cart[foundItemIndex].totalPrice = state.cart[foundItemIndex].quantity * state.cart[foundItemIndex].price
+                state.cart[foundItemIndex].totalPrice = state.cart[foundItemIndex].quantity * state.cart[foundItemIndex].price;
             } else {
                 newItem.quantity = 1;
                 newItem.totalPrice = newItem.price;

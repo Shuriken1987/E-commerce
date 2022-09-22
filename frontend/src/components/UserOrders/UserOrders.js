@@ -1,6 +1,7 @@
 import shopService from "../../services/shopService";
 import {useSelector} from "react-redux";
 import {useEffect, useState} from "react";
+import "./userOrders.scss";
 
 function UserOrders() {
     const {user} = useSelector(state => state.userStore);
@@ -19,28 +20,33 @@ function UserOrders() {
     }, []);
 
     return <>
-        <div>
+        {orders.length ?<div>
             <hr/>
             {orders.map((el, index) => {
-                return <div className="my-5" key={index}>
-                    <p>Order number: {el._id}</p>
-                    {el.order_date ? <p>Order date: {el.order_date}</p>:null}
-                    {el.order.map((item) => {
-                        return <div className="col-md-3 row" key={item._id}>
-                            <div className="col-md-6 my-3">
-                                <img src={item.productImg} alt={item.title}/>
+                return <div className="my-5 user-orders" key={index}>
+                    <div className="order-info px-3">
+                        <h5>Order number: {el._id}</h5>
+                        {el.order_date ? <h5>Order date: {el.order_date}</h5> : null}
+                        {el.order_totalPrice ? <h5>Total price: {el.order_totalPrice},00 kr</h5> : null}
+                    </div>
+                    <div className="order-view">
+                        {el.order.map((item) => {
+                            return <div className="col-md-3 order-single" key={item._id}>
+                                <div className="col-md-6 my-3">
+                                    <img src={item.productImg} alt={item.title}/>
+                                </div>
+                                <div className="col-md-6 item-info mt-2">
+                                    <p>{item.title}</p>
+                                    <p>Quantity: {item.quantity}</p>
+                                    <p>Price: {item.price},00 kr</p>
+                                </div>
                             </div>
-                            <div className="col-md-6">
-                                <p>{item.title}</p>
-                                <p>Price: {item.price},00 kr</p>
-                            </div>
-                        </div>
-                    })}
+                        })}
+                    </div>
                     <hr/>
                 </div>
             })}
-        </div>
-
+        </div>: <h3 className="no-orders">You dont have any orders yet.</h3>}
     </>
 }
 

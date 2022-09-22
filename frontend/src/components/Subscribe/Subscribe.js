@@ -37,7 +37,7 @@ function Subscribe({bgUrl, titleText, titleTextBefore, titleTextAfter}) {
         return <form onSubmit={signUpSubscribe}>
                 <input ref={inputEmail} type="text" placeholder="Your Email Address" onInput={handleOnInput}
                        value={subscribeEmail}/>
-                <button>sign up</button>
+                <button>Subscribe</button>
         </form>
     }
     const responseMsgLayout = () => {

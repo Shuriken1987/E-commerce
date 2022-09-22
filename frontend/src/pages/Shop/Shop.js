@@ -34,7 +34,7 @@ function Shop() {
                 .catch(err => console.log(err))
                 .finally(() => dispatch(showLoader(false)))
         }
-    }, [searchTerm,query]); // samo sam dodao query
+    }, [searchTerm,query]);
 
     const searchedProducts = () => {
         ShopService.getSearchedAds(searchTerm)

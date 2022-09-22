@@ -169,9 +169,18 @@ footer {
     color: $white;
     cursor: pointer;
     line-height: 2rem;
+    margin-left: 20%;
 
     &:hover {
       color: $violet;
+    }
+  }
+  .col-md-4{
+    h6{
+      text-align: center;
+    }
+    .useful-links{
+       margin-left: 35%;
     }
   }
 }

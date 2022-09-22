@@ -50,8 +50,7 @@ function NavTop() {
 
     const userBtnLayout = () => {
         return user.hasOwnProperty("username") ? (<li className="nav-item dropdown">
-                <a
-                    className="nav-link dropdown-toggle user"
+                <a className="nav-link dropdown-toggle user"
                     href="/"
                     id="navbarDropdown"
                     role="button"
@@ -60,13 +59,11 @@ function NavTop() {
                 >
                     <FaUserAlt/>
                 </a>
-                <ul
-                    className="dropdown-menu dropdown-menu-end"
+                <ul className="dropdown-menu dropdown-menu-end"
                     aria-labelledby="navbarDropdown"
                 >
                     <li>
-                        <Link
-                            to={routeConfig.USER_PROFILE.url}
+                        <Link to={routeConfig.USER_PROFILE.url}
                             className="dropdown-item user-dropdown"
                         >
                             <i className="bi bi-person-workspace me-2"></i>
@@ -74,17 +71,10 @@ function NavTop() {
                         </Link>
                     </li>
                     <li>
-                        <Link
-                            to={routeConfig.MY_ORDERS.url}
+                        <Link to={routeConfig.MY_ORDERS.url}
                             className="dropdown-item user-dropdown">
                             <i className="bi bi-box me-2"></i>
                             My orders
-                        </Link>
-                    </li>
-                    <li>
-                        <Link to="/my-ads" className="dropdown-item" href="/">
-                            <i className="bi bi-heart me-2"></i>
-                            Wishlist
                         </Link>
                     </li>
                     {user.isAdmin === "true" && <li>

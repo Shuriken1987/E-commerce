@@ -2,6 +2,7 @@ import Modal from 'react-modal';
 import {useEffect, useState} from "react";
 import customStyles from "./customStyle";
 import ShopService from "../../services/shopService";
+import {isAllOf} from "@reduxjs/toolkit";
 
 
 function EditProduct({product, showModal, updatedDb}) {
@@ -55,12 +56,10 @@ function EditProduct({product, showModal, updatedDb}) {
     };
 
     return <div>
-        <Modal isOpen={true} ariaHideApp={false} style={customStyles} aria-labelledby='contained-modal-title-vcenter'
-               centered>
+        <Modal isOpen={true} ariaHideApp={false} style={customStyles} aria-labelledby='contained-modal-title-vcenter' centered>
             {!isValidForm ? <p className="notification text-warning">All fields are required!</p> : null}
             {isApiFinish ? <p className="notification text-success">Successfuly updated!</p> : null}
-            {isApiErr ? <p className="notification text-warning">ERROR:Ooops, something went wrong, please try
-                later!</p> : null}
+            {isApiErr ? <p className="notification text-warning">ERROR:Ooops, something went wrong, please try later!</p> : null}
 
             <form onSubmit={onSubmitForm} method="post" encType="multipart/form-data">
                 <div className="row justify-content-center">

@@ -53,6 +53,9 @@ function PaymentMessage({ msg }) {
     const [order, setOrder] = useState({
         userID: user._id,
         order_date: moment().format('DD-MM-YYYY'),
+        order_totalPrice: cart.reduce((state, item) => {
+            return state + item.totalPrice;
+        }, 0),
         order: cart
     });
 
@@ -61,7 +64,7 @@ function PaymentMessage({ msg }) {
             ShopService.ordered(order)
                 .then(response => {
                     if (response.status === 200) {
-                        // console.log(response);
+                        console.log(response);
                     }
                 })
                 .catch(err => {

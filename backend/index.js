@@ -7,11 +7,11 @@ const serverConfig = require("./config/serverConfig");
 const userRoute = require('./routes/userRoute');
 const productsRoute = require('./routes/productsRoute');
 const paymentRoute = require('./routes/paymentRoute');
-const clients = require('./models/testimonialClients.json');
 const subscribeRoute = require('./routes/subscribeRoute');
 const commentsRoute = require('./routes/commentRoute');
 const ordersRoute = require('./routes/orderRoute');
 const contactRoute = require('./routes/contactRoute');
+const testimonialRoute = require('./routes/testimonialRoute');
 
 const app = express();
 
@@ -32,13 +32,7 @@ app.use("/api/subscribe", subscribeRoute);
 app.use("/api/comments", commentsRoute);
 app.use("/api/orders", ordersRoute);
 app.use("/api/contact", contactRoute);
-
-
-// getting clients from models/clients.json
-app.get("/api/home", (req, res) => {
-    res.send(clients);
-});
-
+app.use("/api/testimonial", testimonialRoute);
 
 //ServerConfig
 app.listen(serverConfig.port, err => {

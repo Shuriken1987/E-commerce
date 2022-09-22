@@ -1,7 +1,7 @@
 import {useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
 import ShopService from "../../services/shopService";
-import {FaStar, FaStarHalf} from "react-icons/fa";
+import {FaHeart, FaRegHeart, FaStar, FaStarHalf} from "react-icons/fa";
 import "./singleProductStyle.scss";
 import {useDispatch} from "react-redux";
 import {addToCart} from "../../redux/shopCartSlice";
@@ -40,7 +40,7 @@ function SingleProductView() {
         } else {
             setIsParamsValid(false);
         }
-    },[]);
+    }, []);
 
     const adLayout = () => {
         return <div className="row mt-5">
@@ -52,17 +52,19 @@ function SingleProductView() {
                 <p className="product-price">{product.price},00 kr</p>
                 <div className="rating-stars-product">
                      <span className="rate-product" style={{cursor: "pointer"}}>
-                             <FaStar/><FaStar/><FaStar/><FaStarHalf/>(45)
+                             <FaStar/><FaStar/><FaStar/><FaStarHalf/>({product.rating})
                      </span>
                 </div>
-                <button className="btn btn-dark add-to-cart" type="button" onClick={handleAddToCart}>Add to cart</button>
+                <div>
+                    <button className="btn btn-dark add-to-cart" type="button" onClick={handleAddToCart}>Add to cart
+                    </button>
+                </div>
                 <p className="product-descriptionn">{product.description}</p>
-
             </div>
         </div>
     }
 
-    const handleAddToCart = ()=>{
+    const handleAddToCart = () => {
         dispatch(addToCart(product));
     }
 
@@ -75,11 +77,11 @@ function SingleProductView() {
             <div className="container view-ad-wrapper">
                 {noParamsMsgLayout()}
                 {product && product.hasOwnProperty('_id') && adLayout()}
-                {product &&<div className="container">
-                <ProductDetails/>
-                {/*<LatestProducts/>*/}
-                <Comments productId={params.productId} productTitle={product.title}/>
-            </div>}
+                {product && <div className="container">
+                    <ProductDetails/>
+                    {/*<LatestProducts/>*/}
+                    <Comments productId={params.productId} productTitle={product.title}/>
+                </div>}
             </div>
         </>
     )
