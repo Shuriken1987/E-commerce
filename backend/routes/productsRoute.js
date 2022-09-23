@@ -29,7 +29,7 @@ routes.get('/all-products', (req, res) => {
         if (data) {
             res.send(data)
         } else {
-            res.send("Product dont found")
+            res.send("Products not found")
         }
     })
 });
@@ -51,7 +51,7 @@ routes.get('/random-products/:numberOfAds', (req, res) => {
             }
             res.send(randAds);
         } else {
-            res.send("Product dont found")
+            res.send("Product not found")
         }
     })
 });

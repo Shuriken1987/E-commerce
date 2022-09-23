@@ -11,6 +11,7 @@ function Home() {
     return (
         <>
             <Header/>
+
             <div className="container">
                 <div className="home-section-wrapper my-5">
                     <Masonry changeSide={false}/>

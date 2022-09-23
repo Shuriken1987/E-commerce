@@ -16,9 +16,9 @@ function ProductSlider() {
 
     useEffect(() => {
         ShopService.getRandomAds(5)
-            .then(response => {
-                if (response.status === 200) {
-                    setAds(response.data);
+            .then(res => {
+                if (res.status === 200) {
+                    setAds(res.data);
                 }
             })
             .catch(err => {
@@ -65,13 +65,14 @@ function ProductSlider() {
     };
 
     return (
-        <div className="our-product-slider">
-             <div className="clients-header">
+        <>
+            {ads.length ? <div className="our-product-slider">
+                <div className="clients-header">
                     <h3>Latest products</h3>
                 </div>
-            <Slider {...settings}>
-                {ads.map((ad, index) => {
-                    return <div className="card slider-card" key={index}>
+                <Slider {...settings}>
+                    {ads.map((ad, index) => {
+                        return <div className="card slider-card" key={index}>
                             <span className="product-img">
                                 <img src={ad.productImg} alt={ad.title}/>
                             </span>
@@ -81,19 +82,20 @@ function ProductSlider() {
                                     {ad.price},00 kr
                                 </span>
                             </span>
-                        <p className="hover-content">
-                            <a href="" className="add-to-cart" onClick={e => {
-                                e.preventDefault();
-                                dispatch(addToCart(ad));
-                            }}><i className="fa fa-shopping-cart"></i>Add to cart</a> <br/>
-                            <Link to={routeConfig.PRODUCT_SHOP.realUrl(ad._id)} className="view-product">
-                                View product
-                            </Link>
-                        </p>
-                    </div>
-                })}
-            </Slider>
-        </div>
+                            <p className="hover-content">
+                                <a href="#" className="add-to-cart" onClick={e => {
+                                    e.preventDefault();
+                                    dispatch(addToCart(ad));
+                                }}><i className="fa fa-shopping-cart"></i>Add to cart</a> <br/>
+                                <Link to={routeConfig.PRODUCT_SHOP.realUrl(ad._id)} className="view-product">
+                                    View product
+                                </Link>
+                            </p>
+                        </div>
+                    })}
+                </Slider>
+            </div>: null}
+        </>
     )
 }
 

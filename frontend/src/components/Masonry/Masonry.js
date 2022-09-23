@@ -20,22 +20,21 @@ function Masonry({changeSide}) {
     }, []);
 
     useEffect(() => {
-        setIsChangeSide(changeSide)
+        setIsChangeSide(changeSide);
     }, [changeSide]);
 
     return (
         <>
-            {ads.length && <div className="masonry row">
+            {ads.length ? <div className="masonry row">
                 <div className={`col-md-5 col-sm-5 col-xs-12 left ad ${!isChangeSide ? 'order-first':'order-last'}`}>
                     <AdComponentSmaller products={ads}/>
                 </div>
                 <div className="col-md-7 col-sm-7 col-xs-12 right ad">
                     <AdComponentBigger products={ads}/>
                 </div>
-            </div>}
+            </div>: null}
         </>
     )
 }
-
 
 export default Masonry;

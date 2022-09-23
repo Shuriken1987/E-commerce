@@ -11,23 +11,23 @@ const Process = require("process");
 routes.post('/login', async (req, res) => {
     const {username, password} = req.body;
     const foundUser = Users.findOne({username}, (err, data) => {
-         if (err) {
+        if (err) {
             const errorMsg = `Error on getting user from DB: ${err}`;
             res.status(416).send(errorMsg);
             return;
         }
-        if (data.isActive === 'true') {
+        if (data && data.isActive === 'true') {
             bcrypt.compare(password, data.password, async (err, isMatch) => {
                 if (isMatch) {
                     // data.token = generateToken(data._id);
                     res.send(data)
                 } else
-                    res.status(400).send('Wrong password.');
+                    res.status(417).send('Wrong password.');
             })
-        }else if(data.isActive === 'false'){
-            res.status(417).send('Account is not activated, please check your email.');
+        } else if (data && data.isActive === 'false') {
+            res.status(401).send('Account is not activated, please check your email.');
         } else
-            res.status(419).send('User not found.');
+            res.status(401).send('User not found.');
     });
 });
 
@@ -49,11 +49,11 @@ routes.post('/register', async (req, res) => {
             const newUser = new Users(reqBody);
             newUser.password = hashedPassword;
             const saveNewUser = await newUser.save();
-            if (saveNewUser){
-               saveNewUser.token = generateToken(saveNewUser._id);
-               res.send(saveNewUser);
+            if (saveNewUser) {
+                saveNewUser.token = generateToken(saveNewUser._id);
+                res.send(saveNewUser);
                 // console.log(saveNewUser.token)
-            }else{
+            } else {
                 res.send('User not registered');
             }
 
@@ -84,9 +84,9 @@ routes.post('/register', async (req, res) => {
 });
 
 // Activate user
-routes.post('/complete-registration',(req,res)=>{
+routes.post('/complete-registration', (req, res) => {
     const userId = req.body.userId;
-    Users.updateOne({_id: userId},{isActive: true}, (err,result)=>{
+    Users.updateOne({_id: userId}, {isActive: true}, (err, result) => {
         if (err) {
             res.send(err);
         } else {
@@ -119,8 +119,8 @@ routes.put("/profile", (req, res) => {
     })
 });
 // Get all users for admin
-routes.get("/get-all-users", (req,res)=>{
-    Users.find((error,data)=>{
+routes.get("/get-all-users", (req, res) => {
+    Users.find((error, data) => {
         if (error) throw error;
         res.send(data);
     })
@@ -128,7 +128,7 @@ routes.get("/get-all-users", (req,res)=>{
 //delete user by id
 routes.delete("/delete:id", (req, res) => {
     const params = req.params.id;
-    Users.deleteOne({ _id: params }, async (error) => {
+    Users.deleteOne({_id: params}, async (error) => {
         if (error) throw error;
         await res.send("User deleted");
     });
@@ -144,8 +144,8 @@ function validate(req, res, next) {
 }
 
 // Generate JWT
-const generateToken = (id)=>{
-    return jwt.sign({id},process.env.JWT_SECRET, {
+const generateToken = (id) => {
+    return jwt.sign({id}, process.env.JWT_SECRET, {
         expiresIn: '10d',
     })
 };

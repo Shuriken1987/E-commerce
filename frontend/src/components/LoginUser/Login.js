@@ -36,13 +36,12 @@ function Login({showLoginForm}) {
         AuthService.login(userData)
             .then(res => {
                 if (res.status === 200) {
-                        localStorage.setItem('user', JSON.stringify(res.data));
-                        dispatch(setUser(res.data))
-                        navigate(`/${res.data.isAdmin ? 'dashboard' : ''}`);
+                    localStorage.setItem('user', JSON.stringify(res.data));
+                    dispatch(setUser(res.data))
+                    navigate(`/${res.data.isAdmin ? 'dashboard' : ''}`);
                 }
             })
             .catch(err => {
-                // console.log(err)
                 setMessage(err.response.data);
                 // setTimeout(() => setMessage(""), 1500);
                 setIsApiErr(true);
