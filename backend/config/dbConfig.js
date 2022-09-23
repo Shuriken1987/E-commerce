@@ -1,5 +1,5 @@
-const MONGO_PASS = '1111';
-const MONGODB_URL = `mongodb+srv://Milan:${MONGO_PASS}@cluster0.im0oh.mongodb.net/?retryWrites=true&w=majority`;
+const MONGO_PASS = process.env.MONGO_PASSWORD;
+const MONGODB_URL = process.env.MONGO_URI;
 
 const mongooseOptions = {
     useNewUrlParser: true,

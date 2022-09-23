@@ -5,7 +5,7 @@ import { loadStripe } from "@stripe/stripe-js";
 import { Elements, PaymentElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import StepperFooter from "./StepperFooter";
 
-const stripePromise = loadStripe('pk_test_51LUxn6HWjRap35ChbrZvS3JhVc8iKe3zMRKCGzv1tlHx5bBNtBgMGPPPnq7FdFGr1nH1zX58iiydSFWsB6X5P0gf00Ls3fKhRh')
+const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PK);
 
 function OrderProcessStepTree({ sk }) {
     const stripe = useStripe();
@@ -50,7 +50,7 @@ function StripeElements() {
 
         ShopService.initPayment({ amount: sumPrice})
             .then(response => {
-                setSk(response.data)
+                setSk(response.data);
             })
             .catch(err => console.log(err))
     }, []);
