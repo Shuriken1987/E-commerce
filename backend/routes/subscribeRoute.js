@@ -22,7 +22,7 @@ routes.put('/addToList', async (req, res) => {
                     htmlString: `
                         <h2>Successfully subscribed</h2>
                         <p>If you want to unsubscribe click on the link below.</p>
-                         <a href="https://food-florist-hbg.netlify.app/unsubscribe/${saveNewUser._id.toString()}">Activate link</a>
+                         <a href="https://food-florist-hbg.netlify.app/unsubscribe/${addSubscribe._id.toString()}">Activate link</a>
                         `
                 }
             )
