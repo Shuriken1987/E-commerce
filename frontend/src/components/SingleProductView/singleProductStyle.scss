@@ -1,6 +1,7 @@
 @import "../../assets/scss/variables";
+@import "src/assets/scss/variables";
 
-.ja{
+.productImg-holder{
   .single-product-img{
     width: 80%;
   }
@@ -18,15 +19,16 @@
     padding: 10px 0;
     font-size: 20px;
   }
-  .add-to-wishlist{
-    font-size: 40px;
-    cursor: pointer;
-    margin-left: 20px;
-    &:hover{
-      transition: $transition;
-      color: $yellow;
-    }
-  }
+  //.add-to-wishlist{
+  //  font-size: 40px;
+  //  cursor: pointer;
+  //  margin-left: 20px;
+  //  &:hover{
+  //    transition: $transition;
+  //    color: $yellow;
+  //  }
+  //}
+
   .product-descriptionn{
     font-size: 24px;
   }
@@ -51,15 +53,12 @@
     padding: 11px 40px;
     border: none;
     text-transform: uppercase;
-
-    &:hover {
-      background-color: $violet;
-      color: $white;
-    }
+    transition: $transition;
   }
 
   .btn {
     color: $yellow;
+    transition: $transition;
   }
 
   hr {

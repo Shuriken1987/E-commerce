@@ -1,6 +1,27 @@
 .order-table-wrapper {
   img {
     width: 120px;
+    @media(max-width: 767px) {
+      width: 60px;
+    }
+  }
+
+  .item-quantity {
+    @media(max-width: 767px) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      span{
+        text-align: center;
+      }
+    }
+  }
+  .item-price{
+    @media(max-width: 767px) {
+      font-size: 18px;
+      padding-left: 0;
+      padding-right: 0;
+    }
   }
 }
 
@@ -8,6 +29,7 @@
   label.form-label, label.form-check-label {
     margin-top: 0;
   }
+
   .form-group {
     height: 100px;
 

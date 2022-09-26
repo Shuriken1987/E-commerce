@@ -27,8 +27,8 @@ function Login({showLoginForm}) {
         e.preventDefault();
         if (!userData.username || !userData.password) {
             setIsFormValid(false);
+            setIsApiErr(false);
             setMessage('Username and password required');
-            // setTimeout(() => setMessage(""), 1500);
             return;
         }
         setIsFormValid(true);
@@ -43,13 +43,15 @@ function Login({showLoginForm}) {
             })
             .catch(err => {
                 setMessage(err.response.data);
-                // setTimeout(() => setMessage(""), 1500);
                 setIsApiErr(true);
             });
-        // setMessage("");
     }
 
     return <>
+        <div className="auth-message">
+            {!isFormValid ? <h4 className="text-warning">{message}</h4> : null}
+            {isApiErr ? <h4 className="text-danger">{message}</h4>: null}
+        </div>
         <form onSubmit={onSubmitForm} method="post">
             <h3 className="mb-5 text-center">Sign in</h3>
             <label htmlFor="username">Username</label>
@@ -59,9 +61,7 @@ function Login({showLoginForm}) {
             <input className="form-control mb-3" name="password" type="password" id="password" onInput={onHandleInput}/>
 
             <button className="btn btn-success px-5 d-block mx-auto">Sign in</button>
-            <p className="info">Dont have account ? <a type="button" onClick={loginForm} className="text-success link">SignUp</a></p>
-            {!isFormValid && <h5 className="text-warning">{message}</h5>}
-            {isApiErr && <h5 className="text-danger">{message}</h5>}
+            <p className="info mt-3">Dont have account ? <a type="button" onClick={loginForm} className="text-success link">SignUp</a></p>
         </form>
     </>
 }

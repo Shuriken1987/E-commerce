@@ -89,11 +89,11 @@
   padding: 12px 30px;
   border-radius: 30px;
   display: inline-block;
-  transition: all 0.3s;
   outline: none;
   box-shadow: none;
   text-shadow: none;
   cursor: pointer;
+  transition: $transition;
 
   &:hover {
     background-color: #fff;

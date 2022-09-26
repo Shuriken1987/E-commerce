@@ -71,7 +71,8 @@
         font-size: 1.8rem;
         color: $black !important;
         font-family: $logoFont;
-        text-shadow: 0 0 20px $yellow;
+        transition: $transition;
+
 
         &:hover {
           color: $violet !important;

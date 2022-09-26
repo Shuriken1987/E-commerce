@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Tangerine&display=swap');
+@import "src/assets/scss/variables";
 
 .subscribe {
   font-size: 62.5%;
@@ -53,7 +54,7 @@
       }
     }
 
-    button {
+    .subscribe-btn {
       letter-spacing: .1em;
       background-color: #ffffff;
       outline: none;
@@ -62,6 +63,14 @@
       font-size: 1.3em;
       font-weight: 700;
       padding: .5em 2.5em;
+      font-style: oblique;
+      transition: $transition;
+
+      &:hover{
+        background-color: transparent;
+        border: 1px solid white;
+        color: #ffffff;
+      }
     }
   }
 

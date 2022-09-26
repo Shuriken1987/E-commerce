@@ -7,7 +7,6 @@ import {setCart} from "./redux/shopCartSlice";
 import {routeConfig} from "./config/routeConfig";
 import {Navigate} from "react-router";
 
-
 import "../src/assets/scss/style.css";
 import NavTop from "./components/Navigation/NavTop";
 import Navigation from "./components/Navigation/Navigation";
@@ -35,11 +34,9 @@ import Subscribers from "./adminComponents/Subscribers/Subscribers";
 import Orders from "./adminComponents/Orders/Orders";
 
 
-
-
 // axios.defaults.baseURL = 'http://localhost:5000';
 axios.defaults.baseURL = process.env.REACT_APP_SERVER_URL;
-
+//
 
 function App() {
     const {user} = useSelector(state => state.userStore);

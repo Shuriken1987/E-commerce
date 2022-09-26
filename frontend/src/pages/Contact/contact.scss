@@ -2,6 +2,7 @@
     padding: 75px 0;
 }
 @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+@import "src/assets/scss/variables";
 
 // contact form
 .contact-form {
@@ -73,7 +74,7 @@
   margin-bottom: 42px;
 
   span {
-    color: #1daaa3;
+    color: $yellow;
     font-size: 35px;
     position: absolute;
     top: -10px;
@@ -88,8 +89,12 @@
     margin-bottom: 0;
 
     a {
+      transition: $transition;
       color: #9c9c9c;
       text-decoration: none;
+      &:hover{
+        color: $yellow;
+      }
     }
   }
 }

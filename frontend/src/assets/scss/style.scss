@@ -15,6 +15,40 @@ header {
   height: 80vh;
   background-position: center;
   background-size: cover;
+
+  .headline {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: navajowhite;
+    height: 100%;
+    padding-left: 50px;
+    text-shadow: 0 0 20px $yellow;
+    letter-spacing: 5px;
+
+    h1 {
+      font-size: 3rem;
+      line-height: 1.5;
+    }
+
+    h5 {
+      margin-left: 30px;
+    }
+  }
+  @media(max-width: 767px) {
+    .headline {
+      letter-spacing: 1px;
+      padding-left: 10px;
+
+      h1 {
+        font-size: 1.8rem;
+        line-height: 1.5;
+      }
+      h5{
+        margin-left: 15px;
+      }
+    }
+  }
 }
 
 /* Request Form */
@@ -48,11 +82,11 @@ header {
     padding: 10px 28px;
     border-radius: 30px;
     display: inline-block;
-    transition: all 0.3s;
     outline: none;
     box-shadow: none;
     text-shadow: none;
     cursor: pointer;
+    transition: $transition;
 
     &:hover {
       background-color: $white;
@@ -127,6 +161,8 @@ footer {
       font-size: 2.7rem;
       color: $firstFontColor;
       font-weight: 400;
+      transition: $transition;
+
       @media(max-width: 767px) {
         font-size: 1.8rem;
       }
@@ -152,9 +188,9 @@ footer {
       display: flex;
       justify-content: center;
       align-items: center;
+    transition: $transition;
 
       &:hover {
-        transition: $transition;
         background-color: $secondFontColor;
         color: $firstFontColor;
       }
@@ -170,17 +206,20 @@ footer {
     cursor: pointer;
     line-height: 2rem;
     margin-left: 20%;
+    transition: $transition;
 
     &:hover {
       color: $violet;
     }
   }
-  .col-md-4{
-    h6{
+
+  .col-md-4 {
+    h6 {
       text-align: center;
     }
-    .useful-links{
-       margin-left: 35%;
+
+    .useful-links {
+      margin-left: 35%;
     }
   }
 }

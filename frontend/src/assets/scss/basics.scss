@@ -1,40 +1,45 @@
 /**********************
 basic styles
 **********************/
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-a{
-    text-decoration: none;
+
+a {
+  text-decoration: none;
 }
-ul{
-    list-style: none;
+
+ul {
+  list-style: none;
 }
 
 h6 {
-    font-size: 1.8rem;
-    &::after {
-      display: block;
-      content: "";
-      width: 20%;
-      background: darkviolet;
-      height: 2px;
-      margin: 20px auto 30px auto;
-    }
+  font-size: 1.8rem;
+
+  &::after {
+    display: block;
+    content: "";
+    width: 20%;
+    background: darkviolet;
+    height: 2px;
+    margin: 20px auto 30px auto;
   }
+}
 
 // button on add to cart
-  .add-to-cart{
-    margin: 20px auto;
-    color: $secondFontColor;
-    transition: $transition;
+.add-to-cart {
+  margin: 20px auto;
+  color: $secondFontColor;
+  transition: $transition;
+
   &:hover {
     background-color: $secondFontColor;
     border: 1px solid $violet;
     color: $violet;
   }
+
   &:focus {
     background-color: #212529;
     color: $secondFontColor;
@@ -42,9 +47,17 @@ h6 {
     box-shadow: 0 0 0 0;
   }
 }
-  .dropdown-item{
-    &:active{
-      background: transparent;
-      color: black;
-    }
+
+.dropdown-item {
+  &:active {
+    background: transparent;
+    color: black;
   }
+}
+
+.edit-btn, .btn-save, .close-modal {
+  transition: $transition;
+  border: 1px solid $yellow;
+  background-color: $black;
+  color: $yellow;
+}

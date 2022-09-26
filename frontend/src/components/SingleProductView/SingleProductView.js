@@ -44,7 +44,7 @@ function SingleProductView() {
 
     const adLayout = () => {
         return <div className="row mt-5">
-            <div className="col-md-6 ja">
+            <div className="col-md-6 productImg-holder">
                 <img className="single-product-img" src={product.productImg} alt={product.title}/>
             </div>
             <div className="col-md-6 product-details">

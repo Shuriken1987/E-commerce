@@ -28,7 +28,7 @@ function UserProfile() {
                             </li>
                             <li className="list-group-item"><b>Address:</b> {user.address}</li>
                             <li className="list-group-item"><b>City:</b> {user.city}</li>
-                            <button className="btn btn-outline-primary mx-auto my-2" onClick={showModal}>Edit profile
+                            <button className="btn edit-btn mx-auto my-2" onClick={showModal}>Edit profile
                             </button>
                         </ul>
                         {modalIsOpen && <UserAccountSettings showModal={setModalIsOpen}/>}

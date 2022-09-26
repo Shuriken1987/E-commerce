@@ -29,7 +29,7 @@ const ContactInfo = () => {
         <div className="col-md-6 col-sm-6 col-xs-6 contact-content">
           <div className="contact-info">
             <span className="icon"><FaMapMarkerAlt/></span>
-            <p>09 Downtown, Store Main St,Victoria, Australia</p>
+            <p>Some address 2a Helsingborg ,Skåne Sweden</p>
           </div>
         </div>
         <div className="col-md-6 col-sm-6 col-xs-6 contact-content">
@@ -50,7 +50,7 @@ const ContactInfo = () => {
         <div className="col-md-6 col-sm-6 col-xs-6 contact-content">
           <div className="contact-info">
             <span className="icon"><FaInfoCircle/></span>
-            <p>09 Downtown, Store Main St,Victoria, Australia</p>
+            <p>Some address 2a Helsingborg, Skåne Sweden</p>
           </div>
         </div>
         <div className="col-md-6 col-sm-6 col-xs-6 contact-content">

@@ -88,7 +88,7 @@ function Comments({productId, productTitle}) {
                           ref={commentRef}
                           onChange={onHandleInput}
                 />
-                <button name="create_comment" className="btn my-3">Submit</button>
+                <button name="create_comment" className="btn btn-save my-3">Submit</button>
             </form>
         </div>
         {/*{SHOW COMMENT}*/}

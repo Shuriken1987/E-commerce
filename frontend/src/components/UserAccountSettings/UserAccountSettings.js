@@ -118,8 +118,8 @@ function UserAccountSettings({showModal}) {
                                    onInput={onHandleInput}/>
                         </div>
                         <div className="footer d-flex justify-content-center my-3">
-                            <button className="btn btn-outline-primary mx-2 save">Save</button>
-                            <button className="btn btn-outline-primary mx-2" onClick={closeModal}>Close</button>
+                            <button className="btn mx-2 btn-save">Save</button>
+                            <button className="btn mx-2 close-modal" onClick={closeModal}>Close</button>
                         </div>
 
                     </div>

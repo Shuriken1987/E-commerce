@@ -1,6 +1,7 @@
 import {useEffect, useState} from "react";
 import {useNavigate, useParams} from "react-router-dom";
 import AuthService from "../../services/authService";
+import "./activate.scss";
 
 function ActivateUser() {
     const navigate = useNavigate();
@@ -37,8 +38,7 @@ function ActivateUser() {
     return (
         <div className="container">
             <div className="row">
-                <div className="col-md-12">
-                    <h1>Activate page</h1>
+                <div className="col-md-12 activate-holder">
                     {isApiFinished && responseMsgLayout()}
                 </div>
             </div>

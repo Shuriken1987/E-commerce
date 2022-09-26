@@ -2,6 +2,7 @@ import {useDispatch, useSelector} from "react-redux";
 import React, {useEffect} from "react";
 import {FaTrashAlt, FaMinusCircle, FaPlusCircle} from "react-icons/fa";
 import {handleCount, removeItem} from "../../../redux/shopCartSlice";
+
 // import ChangeCurrency from "../../ChangeCurrency/ChangeCurrency";
 
 function OrderProcessStepOne() {
@@ -25,16 +26,19 @@ function OrderProcessStepOne() {
                         <img src={item.productImg} alt={item.title}/>
                     </td>
                     <td>{item.title}</td>
-                    <td>
-                        <FaMinusCircle className="mx-2" onClick={() => handleShopCartCount(index, false)} />
-                        {item.quantity}
+                    <td className="item-quantity">
+                        <FaMinusCircle className="mx-2" onClick={() => handleShopCartCount(index, false)}/>
+                        <span>{item.quantity}</span>
                         <FaPlusCircle className="mx-2" onClick={() => handleShopCartCount(index, true)}/>
                     </td>
-                    <td>
-                        {item.totalPrice}
+                    <td className="item-price">
+                        {item.totalPrice} kr
                     </td>
-
-                    <td><FaTrashAlt onClick={() => {removeItemFromCart(index)}} /></td>
+                    <td>
+                        <FaTrashAlt onClick={() => {
+                            removeItemFromCart(index)
+                        }}/>
+                    </td>
                 </tr>
             )
         })
@@ -48,17 +52,17 @@ function OrderProcessStepOne() {
         <>
             <table className="table table-hover order-table-wrapper">
                 <thead>
-                    <tr>
-                        <th scope="col">No.</th>
-                        <th scope="col">Image</th>
-                        <th scope="col">Title</th>
-                        <th scope="col">Count</th>
-                        <th scope="col">Price</th>
-                        <th scope="col"></th>
-                    </tr>
+                <tr>
+                    <th scope="col">No.</th>
+                    <th scope="col">Image</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Count</th>
+                    <th scope="col">Price</th>
+                    <th scope="col"></th>
+                </tr>
                 </thead>
                 <tbody>
-                    {tableRowLayout()}
+                {tableRowLayout()}
                 </tbody>
             </table>
             {emptyCartLayout()}
