@@ -42,15 +42,15 @@ function NavTop() {
 
     const userBtnLayout = () => {
         return user.hasOwnProperty("username") ? (<li className="nav-item dropdown">
-                <Link className="nav-link dropdown-toggle user"
-                    to={"/"}
+                <a className="nav-link dropdown-toggle user"
+                    href="/"
                     id="navbarDropdown"
                     role="button"
                     data-bs-toggle="dropdown"
                     aria-expanded="false"
                 >
                     <FaUserAlt/>
-                </Link>
+                </a>
                 <ul className="dropdown-menu dropdown-menu-end"
                     aria-labelledby="navbarDropdown"
                 >
