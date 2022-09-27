@@ -1,21 +1,21 @@
 import {useState} from "react";
 import AuthService from "../../services/authService";
-import {useNavigate} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import {useDispatch} from "react-redux";
 import {setUser} from "../../redux/userSlice";
+import ForgottenPassword from "../ForgottenPassword/ForgottenPassword";
 
-function Login({showLoginForm}) {
+function Login() {
     const [userData, setUserData] = useState({
         username: "",
         password: ""
     });
     const [isFormValid, setIsFormValid] = useState(true);
     const [isApiErr, setIsApiErr] = useState(false);
+    const [forgotPass, setForgotPass] = useState(false);
     const [message, setMessage] = useState("");
     const navigate = useNavigate();
     const dispatch = useDispatch();
-
-    const loginForm = () => showLoginForm(false);
 
     const onHandleInput = (e) => {
         let newInput = userData;
@@ -47,22 +47,24 @@ function Login({showLoginForm}) {
             });
     }
 
+    const ifForfotPass = ()=>{
+        setForgotPass(true);
+    }
+
     return <>
         <div className="auth-message">
             {!isFormValid ? <h4 className="text-warning">{message}</h4> : null}
             {isApiErr ? <h4 className="text-danger">{message}</h4>: null}
         </div>
-        <form onSubmit={onSubmitForm} method="post">
-            <h3 className="mb-5 text-center">Sign in</h3>
+        {!forgotPass ?<form onSubmit={onSubmitForm} method="post">
             <label htmlFor="username">Username</label>
             <input className="form-control" name="username" type="text" id="username" onInput={onHandleInput}/>
 
             <label htmlFor="password">Password</label>
             <input className="form-control mb-3" name="password" type="password" id="password" onInput={onHandleInput}/>
-
-            <button className="btn btn-success px-5 d-block mx-auto">Sign in</button>
-            <p className="info mt-3">Dont have account ? <a type="button" onClick={loginForm} className="text-success link">SignUp</a></p>
-        </form>
+            <button className="btn-auth mb-3 px-5 d-block mx-auto">Sign in</button>
+            <Link to={'#'} className="info" onClick={ifForfotPass}>Forgot password?</Link>
+        </form>: <ForgottenPassword/>}
     </>
 }
 

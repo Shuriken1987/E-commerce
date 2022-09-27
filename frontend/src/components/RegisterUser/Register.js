@@ -1,7 +1,7 @@
 import React, {useEffect, useRef, useState} from 'react';
 import AuthService from "../../services/authService";
 
-function Register({showLoginForm}) {
+function Register() {
     const genderSelect = useRef();
     const [userData, setUserData] = useState({
         username: "",
@@ -20,8 +20,6 @@ function Register({showLoginForm}) {
     useEffect(() => {
         setUserData({gender: genderSelect.current.value})
     }, []);
-
-    const loginForm = () => showLoginForm(true);
 
     const onHandleInput = (e) => {
         let newInput = userData
@@ -52,15 +50,10 @@ function Register({showLoginForm}) {
         <>
             <div className="auth-message">
                 {!isValidForm && <h4 className="text-warning">All fields are required!</h4>}
-                {isApiFinish &&
-                    <h4 className="text-success">A verification email has been sent to {userData.email}</h4>}
-                {isApiErr &&
-                    <h4 className="text-danger">ERROR: Something went wrong with network, please try later!</h4>}
+                {isApiFinish && <h4 className="text-success">A verification email has been sent to {userData.email}</h4>}
+                {isApiErr && <h4 className="text-danger">ERROR: Something went wrong with network, please try later!</h4>}
             </div>
             <form onSubmit={onSubmitForm} method="post">
-                <h3 className="mb-3 text-center">Sign up</h3>
-                <p className="info">Already have account ? <a type="button" onClick={loginForm}
-                                                              className="text-info link">Sign in</a></p>
                 <div className="row">
                     <div className="col-md-6">
                         <label htmlFor="username">Username</label>
@@ -103,7 +96,7 @@ function Register({showLoginForm}) {
                     </div>
                 </div>
 
-                <button className="btn btn-success px-5 d-block mx-auto">Sign up</button>
+                <button className="btn-auth px-5 d-block mx-auto">Register</button>
             </form>
         </>
     );

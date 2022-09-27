@@ -4,32 +4,9 @@ const Users = require('../models/userModel');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 const nodemailer = require("nodemailer");
-const Process = require("process");
+// const Process = require("process");
+const Mailer = require("../services/mailService");
 
-
-// User login
-routes.post('/login', async (req, res) => {
-    const {username, password} = req.body;
-    const foundUser = Users.findOne({username}, (err, data) => {
-        if (err) {
-            const errorMsg = `Error on getting user from DB: ${err}`;
-            res.status(416).send(errorMsg);
-            return;
-        }
-        if (data && data.isActive === 'true') {
-            bcrypt.compare(password, data.password, async (err, isMatch) => {
-                if (isMatch) {
-                    // data.token = generateToken(data._id);
-                    res.send(data)
-                } else
-                    res.status(417).send('Wrong password.');
-            })
-        } else if (data && data.isActive === 'false') {
-            res.status(401).send('Account is not activated, please check your email.');
-        } else
-            res.status(401).send('User not found.');
-    });
-});
 
 // User register
 routes.post('/register', async (req, res) => {
@@ -83,6 +60,38 @@ routes.post('/register', async (req, res) => {
     });
 });
 
+routes.post('/forgot-password', async (req, res) => {
+    const email = req.body.email;
+    Users.findOne({email: email}, async (err, data) => {
+        if (err) {
+            res.send(err);
+            return;
+        } else {
+            if (!data) {
+                res.status(418).send("There is no user with that email.")
+                return;
+            } else {
+                const user = data;
+                const newPassword = genPassword();
+                const salt = await bcrypt.genSalt(10);
+                const hashedPassword = await bcrypt.hash(newPassword, salt);
+                user.password = hashedPassword;
+                const saveUserNewPassword = await user.save();
+
+                let mailInfo = new Mailer({
+                    recipient: email,
+                    subject: "Forget password",
+                    htmlString: `
+                        <h2>Dear, ${data.username}</h2>
+                        <p>Your new password is ${newPassword}.</p>`
+                });
+                mailInfo.sendMailToRecipient();
+                res.status(200).send(`We sent you a new password to ${email}`);
+            }
+        }
+    })
+})
+
 // Activate user
 routes.post('/complete-registration', (req, res) => {
     const userId = req.body.userId;
@@ -94,16 +103,43 @@ routes.post('/complete-registration', (req, res) => {
         }
     });
 });
+
+// User login
+routes.post('/login', async (req, res) => {
+    const {username, password} = req.body;
+    const foundUser = Users.findOne({username}, (err, data) => {
+        if (err) {
+            const errorMsg = `Error on getting user from DB: ${err}`;
+            res.status(416).send(errorMsg);
+            return;
+        }
+        if (data && data.isActive === 'true') {
+            bcrypt.compare(password, data.password, async (err, isMatch) => {
+                if (isMatch) {
+                    // data.token = generateToken(data._id);
+                    res.send(data)
+                } else
+                    res.status(417).send('Wrong password.');
+            })
+        } else if (data && data.isActive === 'false') {
+            res.status(401).send('Account is not activated, please check your email.');
+        } else
+            res.status(401).send('User not found.');
+    });
+});
+
 // Update user by Id
-routes.put("/profile", (req, res) => {
-    let id = req.body._id;
-    Users.updateOne({"_id": id}, {
+routes.put("/profile", async (req, res) => {
+    const reqBody = req.body;
+    const salt = await bcrypt.genSalt(10);
+    const hashedPassword = await bcrypt.hash(reqBody.password, salt);
+    Users.updateOne({"_id": reqBody._id}, {
         $set: {
             username: req.body.username,
             firstName: req.body.firstName,
             lastName: req.body.lastName,
             email: req.body.email,
-            password: req.body.password,
+            password: hashedPassword,
             address: req.body.address,
             city: req.body.city,
             isAdmin: req.body.isAdmin
@@ -149,6 +185,17 @@ const generateToken = (id) => {
         expiresIn: '10d',
     })
 };
+
+function genPassword() {
+    const chars = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    const passwordLength = 12;
+    let password = "";
+    for (let i = 0; i <= passwordLength; i++) {
+        let randomNumber = Math.floor(Math.random() * chars.length);
+        password += chars.substring(randomNumber, randomNumber + 1);
+    }
+    return password;
+}
 
 module.exports = routes;
 

@@ -1,12 +1,35 @@
-.info{
+@import "src/assets/scss/variables";
+
+.info {
   font-size: 20px;
-  .link{
+}
+
+.form-control {
+  margin-bottom: 15px;
+}
+
+.auth-message {
+  min-height: 50px;
+}
+
+.holder {
+  text-align: center;
+
+  a {
+    color: black;
+    font-size: 18px;
+    margin: 0 10px;
+  }
+
+  .active {
+    color: $violet;
     text-decoration: underline;
   }
 }
-.form-control{
-  margin-bottom: 15px;
-}
-.auth-message{
-  min-height: 50px;
+
+.btn-auth {
+  padding: 5px 10px;
+  border-radius: 5px;
+  background-color: $black;
+  color: white;
 }

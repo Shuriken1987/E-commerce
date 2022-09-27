@@ -26,7 +26,7 @@ routes.put('/addToList', async (req, res) => {
                         `
                 }
             )
-            mailInfo.sendMailToRecipient()
+            mailInfo.sendMailToRecipient();
             res.send(addSubscribe ? "You are now subscribed!" : "You are not subscribed, something went wrong!")
         }
     })

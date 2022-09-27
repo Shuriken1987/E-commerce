@@ -25,7 +25,7 @@ class Mailer {
         });
 
         let info = await transporter.sendMail(this.mailOptions);
-        return nodemailer.getTestMessageUrl(info)
+        return nodemailer.getTestMessageUrl(info);
     }
 
 }

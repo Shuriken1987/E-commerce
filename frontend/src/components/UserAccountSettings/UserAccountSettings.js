@@ -38,7 +38,6 @@ function UserAccountSettings({showModal}) {
 
     const onSubmitForm = (e) => {
         e.preventDefault();
-        console.log(editedUser)
         if (!editedUser.username || !editedUser.password || !editedUser.email || !editedUser.email.includes("@")) {
             setIsValidForm(false);
             return
@@ -86,20 +85,20 @@ function UserAccountSettings({showModal}) {
                                    value={editedUser.lastName || ''}
                                    onChange={onHandleInput}/>
 
-                            <label className="label" htmlFor="password">Password</label>
-                            <input className="form-control" name="password" type={passIsShown ? "text" : "password"}
-                                   id="password"
-                                   value={editedUser.password || ''}
-                                   onInput={onHandleInput}/>
-                            <div className="checkbox-container">
-                                <label className="label" htmlFor="checkbox">Show password? </label>
-                                <input className="mx-1"
-                                       id="checkbox"
-                                       type="checkbox"
-                                       checked={passIsShown}
-                                       onChange={togglePassword}
-                                />
-                            </div>
+                            {/*<label className="label" htmlFor="password">Password</label>*/}
+                            {/*<input className="form-control" name="password" type={passIsShown ? "text" : "password"}*/}
+                            {/*       id="password"*/}
+                            {/*       value={editedUser.password || ''}*/}
+                            {/*       onInput={onHandleInput}/>*/}
+                            {/*<div className="checkbox-container">*/}
+                            {/*    <label className="label" htmlFor="checkbox">Show password? </label>*/}
+                            {/*    <input className="mx-1"*/}
+                            {/*           id="checkbox"*/}
+                            {/*           type="checkbox"*/}
+                            {/*           checked={passIsShown}*/}
+                            {/*           onChange={togglePassword}*/}
+                            {/*    />*/}
+                            {/*</div>*/}
                         </div>
                         <div className="col-md-6">
                             <label className="label" htmlFor="email">Email</label>

@@ -12,6 +12,7 @@ function Navigation() {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const [isSticky, setIsSticky] = useState(false);
+    // const [isHamburger, setIsHamburger] = useState(false);
 
     useEffect(() => {
         window.addEventListener("scroll", listenToScroll);
@@ -21,9 +22,13 @@ function Navigation() {
         window.scrollY > 500 ? setIsSticky(true) : setIsSticky(false);
     }
 
+    // const showHamburger = () => {
+    //     isHamburger ? setIsHamburger(false) : setIsHamburger(true);
+    // }
+
     return (
-        <nav className={`main-nav ${isSticky ? 'sticky-nav' : ''}`}>
-            <div className="main-nav-links container">
+        <nav className={`main-nav ${isSticky ? 'sticky-nav' : ''} `}>
+            <div className={`main-nav-links container`} >
                 {isSticky &&
                     <Link className="nav-link furn-logo" to={routeConfig.HOME.url}>
                         <span>FF</span>
@@ -45,6 +50,9 @@ function Navigation() {
                 <NavLink className="nav-link" to={routeConfig.CONTACT.url}>
                     Contact
                 </NavLink>
+                {/*<a className="icon" onClick={showHamburger}>*/}
+                {/*    <i className="bi-file-arrow-down"></i>*/}
+                {/*</a>*/}
             </div>
         </nav>
     );

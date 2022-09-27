@@ -75,7 +75,6 @@ function ContactForm() {
       setIsFormValid(false);
       return;
     }
-
     clearInputs(e);
 
     setIsFormValid(true);

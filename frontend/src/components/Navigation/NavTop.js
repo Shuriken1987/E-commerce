@@ -8,8 +8,6 @@ import ShopService from "../../services/shopService";
 import {
     FaPhoneAlt, FaMailBulk, FaSearch, FaUserAlt,
 } from "react-icons/fa";
-
-import "./nav-top.scss";
 import ShopCart from "../ShopCart/ShopCart";
 
 
@@ -19,9 +17,6 @@ function NavTop() {
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
-    // const clearInputs = e => {
-    //     return e.target.value = "";
-    // };
 
     const onSearch = e => {
         e.preventDefault();
@@ -31,15 +26,12 @@ function NavTop() {
     const goToShop = e => {
         e.preventDefault();
         search.length > 0 && navigate(`${routeConfig.SHOP.url}?search=${search}`);
-        // clearInputs(e);
     }
 
     const test = e => {
         if (e.keyCode === 13) {
             goToShop(e);
-            // clearInputs(e);
         }
-
     }
 
     const logOut = () => {
@@ -50,15 +42,15 @@ function NavTop() {
 
     const userBtnLayout = () => {
         return user.hasOwnProperty("username") ? (<li className="nav-item dropdown">
-                <a className="nav-link dropdown-toggle user"
-                    href="/"
+                <Link className="nav-link dropdown-toggle user"
+                    to={"/"}
                     id="navbarDropdown"
                     role="button"
                     data-bs-toggle="dropdown"
                     aria-expanded="false"
                 >
                     <FaUserAlt/>
-                </a>
+                </Link>
                 <ul className="dropdown-menu dropdown-menu-end"
                     aria-labelledby="navbarDropdown"
                 >

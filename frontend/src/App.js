@@ -36,7 +36,7 @@ import Orders from "./adminComponents/Orders/Orders";
 
 // axios.defaults.baseURL = 'http://localhost:5000';
 axios.defaults.baseURL = process.env.REACT_APP_SERVER_URL;
-//
+
 
 function App() {
     const {user} = useSelector(state => state.userStore);

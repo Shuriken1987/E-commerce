@@ -9,6 +9,10 @@ class AuthService {
         return axios.post("/api/user/register", body);
     }
 
+    static forgotPassword(body){
+        return axios.post("/api/user/forgot-password", body);
+    }
+
     static completeRegistration(body) {
         return axios.post("/api/user/complete-registration", body);
     }
