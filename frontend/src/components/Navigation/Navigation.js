@@ -63,34 +63,6 @@ function Navigation() {
                 </a>
             </div>
         </nav>
-        // <nav className={`main-nav ${isSticky ? 'sticky-nav' : ''} `}>
-        //     <div className={`main-nav-links container`} >
-        //         {isSticky &&
-        //             <Link className="nav-link furn-logo" to={routeConfig.HOME.url}>
-        //                 <span>FF</span>
-        //                 <span>Hbg</span>
-        //             </Link>}
-        //
-        //         <NavLink className="nav-link" to={routeConfig.HOME.url}>
-        //             Home
-        //         </NavLink>
-        //
-        //         <NavLink className="nav-link" to={routeConfig.SHOP.url}>
-        //             Shop
-        //         </NavLink>
-        //
-        //         <NavLink className="nav-link" to={routeConfig.ABOUT.url}>
-        //             About
-        //         </NavLink>
-        //
-        //         <NavLink className="nav-link" to={routeConfig.CONTACT.url}>
-        //             Contact
-        //         </NavLink>
-        //         {/*<a className="icon" onClick={showHamburger}>*/}
-        //         {/*    <i className="bi-file-arrow-down"></i>*/}
-        //         {/*</a>*/}
-        //     </div>
-        // </nav>
     );
 }
 
