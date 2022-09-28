@@ -1,18 +1,24 @@
 import Login from "../../components/LoginUser/Login";
 import Register from "../../components/RegisterUser/Register";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import "./auth.scss";
 import ErrorPage from "../ErrorPage/ErrorPage";
 import {useSelector} from "react-redux";
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 
 function AuthPage() {
     const {user} = useSelector(state => state.userStore);
     const [isLogin, setIsLogin] = useState(true);
+    const navigate = useNavigate();
+
+    useEffect(()=>{
+        user?.username && navigate("/");
+    },[])
+
 
     return (
         <>
-            {!user?.username ? <div className="auth-wrapper container-fluid">
+            {!user?.username && <div className="auth-wrapper container-fluid">
                 <div className="row my-5">
                     <div className="holder">
                         <Link to={'#'} className={isLogin ? 'active' : null} onClick={()=> setIsLogin(true)}>Sign in</Link>
@@ -22,7 +28,7 @@ function AuthPage() {
                         {isLogin ? <Login/> : <Register/>}
                     </div>
                 </div>
-            </div> : <ErrorPage/>}
+            </div>}
         </>
     );
 }

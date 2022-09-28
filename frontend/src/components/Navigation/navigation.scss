@@ -1,25 +1,13 @@
 @import '../../assets/scss/variables';
 @import url('https://fonts.googleapis.com/css2?family=Akronim&display=swap');
 
-$navBackround: #252525;
-
+/* Nav-bottom */
 .main-nav {
-  background-color: $navBackround;
-  height: 50px;
-  padding: 0;
-
-  &.sticky-nav {
-    position: sticky;
-    top: 0;
-    z-index: 10;
-  }
+  background-color: $black;
+  overflow: hidden;
 
   .main-nav-links {
     text-transform: uppercase;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    height: 100%;
 
     .furn-logo {
       font-size: 1.4rem;
@@ -32,11 +20,16 @@ $navBackround: #252525;
       }
     }
 
+    /* Style the links inside the navigation bar */
     a {
+      float: left;
+      display: block;
+      text-align: center;
+      padding: 14px 10px;
+      text-decoration: none;
       font-size: .9rem;
       color: white;
       font-weight: 600;
-      margin: 0 10px;
 
       &:hover {
         color: $secondFontColor;
@@ -47,12 +40,43 @@ $navBackround: #252525;
         color: $secondFontColor;
       }
     }
-  }
 
+    .icon {
+      display: none;
+    }
+  }
+}
+
+.sticky-nav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+@media screen and (max-width: 600px) {
+  .main-nav .main-nav-links a:not(:first-child) {
+    display: none;
+  }
+  .main-nav .main-nav-links a.icon {
+    float: right;
+    display: block;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .main-nav.responsive .main-nav-links a.icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .main-nav.responsive .main-nav-links a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
 }
 
 // NAV-TOP
-
 .nav-bar-wrapper {
   background-color: $navTopBackColor;
 
@@ -170,6 +194,7 @@ $navBackround: #252525;
 
         li {
           list-style: none;
+
           a {
             font-size: 18px;
           }

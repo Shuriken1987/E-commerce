@@ -4,9 +4,11 @@ import {Link, useNavigate} from "react-router-dom";
 import {routeConfig} from "../../config/routeConfig";
 import {setUser} from "../../redux/userSlice";
 import ShopService from "../../services/shopService";
+// import "./nav-top.scss";
+
 
 import {
-    FaPhoneAlt, FaMailBulk, FaSearch, FaUserAlt,
+    FaPhoneAlt, FaMailBulk, FaSearch, FaUserAlt, FaSignInAlt,
 } from "react-icons/fa";
 import ShopCart from "../ShopCart/ShopCart";
 
@@ -42,15 +44,15 @@ function NavTop() {
 
     const userBtnLayout = () => {
         return user.hasOwnProperty("username") ? (<li className="nav-item dropdown">
-                <Link className="nav-link dropdown-toggle user"
-                    to={"/"}
+                <a className="nav-link dropdown-toggle user"
+                    href="/"
                     id="navbarDropdown"
                     role="button"
                     data-bs-toggle="dropdown"
                     aria-expanded="false"
                 >
                     <FaUserAlt/>
-                </Link>
+                </a>
                 <ul className="dropdown-menu dropdown-menu-end"
                     aria-labelledby="navbarDropdown"
                 >
@@ -86,7 +88,7 @@ function NavTop() {
         ) : (
             <li className="nav-item">
                 <Link to="/auth" className="nav-link">
-                    SignIn
+                    <FaSignInAlt/>
                 </Link>
             </li>
         );

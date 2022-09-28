@@ -5,6 +5,7 @@ import "./navigation.scss";
 import {useSelector, useDispatch} from "react-redux";
 import {setUser} from "../../redux/userSlice";
 import ShopCart from "../ShopCart/ShopCart";
+import {FaBars} from "react-icons/fa";
 
 
 function Navigation() {
@@ -12,29 +13,36 @@ function Navigation() {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const [isSticky, setIsSticky] = useState(false);
-    // const [isHamburger, setIsHamburger] = useState(false);
+    const [isHamburger, setIsHamburger] = useState(false);
+    const [isMedia, setIsMedia] = useState(false);
 
     useEffect(() => {
         window.addEventListener("scroll", listenToScroll);
+        window.addEventListener('resize', listenToResize)
     }, [])
 
     const listenToScroll = () => {
         window.scrollY > 500 ? setIsSticky(true) : setIsSticky(false);
     }
 
-    // const showHamburger = () => {
-    //     isHamburger ? setIsHamburger(false) : setIsHamburger(true);
-    // }
+    const listenToResize = () => {
+        window.innerWidth < 601 ? setIsMedia(true) : setIsMedia(false);
+    }
+
+    const showHamburger = () => {
+        isHamburger ? setIsHamburger(false) : setIsHamburger(true);
+    }
+
 
     return (
-        <nav className={`main-nav ${isSticky ? 'sticky-nav' : ''} `}>
-            <div className={`main-nav-links container`} >
-                {isSticky &&
-                    <Link className="nav-link furn-logo" to={routeConfig.HOME.url}>
-                        <span>FF</span>
-                        <span>Hbg</span>
-                    </Link>}
+        <nav className={`main-nav ${isHamburger ? 'responsive' : ''} ${isSticky ? 'sticky-nav' : ''}`}
+             style={!isSticky && isHamburger ? {position: "relative"} : null}>
+            <div className="container main-nav-links">
 
+                {isMedia &&<Link className="nav-link furn-logo" to={routeConfig.HOME.url}>
+                    <span>FoodFlorist</span>
+                    <span>Helsingborg</span>
+                </Link>}
                 <NavLink className="nav-link" to={routeConfig.HOME.url}>
                     Home
                 </NavLink>
@@ -50,11 +58,39 @@ function Navigation() {
                 <NavLink className="nav-link" to={routeConfig.CONTACT.url}>
                     Contact
                 </NavLink>
-                {/*<a className="icon" onClick={showHamburger}>*/}
-                {/*    <i className="bi-file-arrow-down"></i>*/}
-                {/*</a>*/}
+                <a className="icon" onClick={showHamburger}>
+                    <FaBars/>
+                </a>
             </div>
         </nav>
+        // <nav className={`main-nav ${isSticky ? 'sticky-nav' : ''} `}>
+        //     <div className={`main-nav-links container`} >
+        //         {isSticky &&
+        //             <Link className="nav-link furn-logo" to={routeConfig.HOME.url}>
+        //                 <span>FF</span>
+        //                 <span>Hbg</span>
+        //             </Link>}
+        //
+        //         <NavLink className="nav-link" to={routeConfig.HOME.url}>
+        //             Home
+        //         </NavLink>
+        //
+        //         <NavLink className="nav-link" to={routeConfig.SHOP.url}>
+        //             Shop
+        //         </NavLink>
+        //
+        //         <NavLink className="nav-link" to={routeConfig.ABOUT.url}>
+        //             About
+        //         </NavLink>
+        //
+        //         <NavLink className="nav-link" to={routeConfig.CONTACT.url}>
+        //             Contact
+        //         </NavLink>
+        //         {/*<a className="icon" onClick={showHamburger}>*/}
+        //         {/*    <i className="bi-file-arrow-down"></i>*/}
+        //         {/*</a>*/}
+        //     </div>
+        // </nav>
     );
 }
 
