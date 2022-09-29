@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import SubscribeService from "../../services/subscribeService";
 import {useNavigate, useParams} from "react-router-dom";
-// import Loader from "../../components/Loader/Loader";
 import "./unsubscribe.scss"
 
 const productInfo = {

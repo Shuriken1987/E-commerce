@@ -3,8 +3,6 @@ import {useDispatch, useSelector} from "react-redux";
 import {Link, useNavigate} from "react-router-dom";
 import {routeConfig} from "../../config/routeConfig";
 import {setUser} from "../../redux/userSlice";
-// import ShopService from "../../services/shopService";
-// import "./nav-top.scss";
 
 
 import {

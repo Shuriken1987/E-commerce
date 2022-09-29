@@ -2,7 +2,6 @@ import Login from "../../components/LoginUser/Login";
 import Register from "../../components/RegisterUser/Register";
 import {useEffect, useState} from "react";
 import "./auth.scss";
-import ErrorPage from "../ErrorPage/ErrorPage";
 import {useSelector} from "react-redux";
 import {Link, useNavigate} from "react-router-dom";
 

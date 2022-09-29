@@ -2,7 +2,6 @@ import "../../pages/Shop/shopStyle.scss";
 import {Link} from "react-router-dom";
 import {routeConfig} from "../../config/routeConfig";
 import "./shopProductsStyle.scss";
-import {FaHeart} from "react-icons/fa";
 
 function ShopProduct({product}) {
 
@@ -11,7 +10,6 @@ function ShopProduct({product}) {
             {product.hasOwnProperty('productImg') && <div className="col-md-2 my-3 shop-ad-wrapper">
                 <Link to={routeConfig.PRODUCT_SHOP.realUrl(product._id)} className="product-view">
                     <div className="card">
-                        {/*<FaHeart className="icons"/>*/}
                         <div className="featuredImage">
                             <img src={product.productImg} alt={product.title}/>
                         </div>

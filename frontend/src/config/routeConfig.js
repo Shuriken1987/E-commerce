@@ -32,9 +32,6 @@ export const routeConfig = {
         url: '/unsubscribe/:id',
         realUrl: id => `/unsubscribe/${id}`,
     },
-    CONTACT: {
-        url: '/contact'
-    },
     ABOUT: {
         url: '/about'
     },

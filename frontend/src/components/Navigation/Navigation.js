@@ -1,17 +1,11 @@
 import React, {useEffect, useState} from "react";
-import {NavLink, Link, useNavigate} from "react-router-dom";
+import {NavLink, Link} from "react-router-dom";
 import {routeConfig} from "../../config/routeConfig";
 import "./navigation.scss";
-import {useSelector, useDispatch} from "react-redux";
-import {setUser} from "../../redux/userSlice";
-import ShopCart from "../ShopCart/ShopCart";
 import {FaBars} from "react-icons/fa";
 
 
 function Navigation() {
-    const {user} = useSelector((state) => state.userStore);
-    const navigate = useNavigate();
-    const dispatch = useDispatch();
     const [isSticky, setIsSticky] = useState(false);
     const [isHamburger, setIsHamburger] = useState(false);
     const [isMedia, setIsMedia] = useState(false);
@@ -58,7 +52,7 @@ function Navigation() {
                 <NavLink className="nav-link" to={routeConfig.CONTACT.url}>
                     Contact
                 </NavLink>
-                <a className="icon" onClick={showHamburger}>
+                <a href="#" className="icon" onClick={showHamburger}>
                     <FaBars/>
                 </a>
             </div>

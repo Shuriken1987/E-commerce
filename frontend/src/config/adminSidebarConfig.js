@@ -1,4 +1,4 @@
-import {FaBox, FaBoxes, FaCommentDots, FaPlus, FaSubscript, FaTh, FaUser, FaUsers} from "react-icons/fa";
+import {FaBox, FaBoxes, FaCommentDots, FaPlus, FaSubscript, FaTh, FaUsers} from "react-icons/fa";
 
 export const ADMIN_SIDEBAR_CONFIG = [
     {
@@ -20,11 +20,6 @@ export const ADMIN_SIDEBAR_CONFIG = [
         name: "Products",
         url: "products",
         icon: <FaBoxes/>,
-        // subCategory: {
-        //     name: "Add product",
-        //     url: "add-product",
-        //     icon: <FaPlus/>,
-        // }
     },
     {
         name: "Add Product",

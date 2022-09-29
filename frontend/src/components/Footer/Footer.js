@@ -1,6 +1,6 @@
 import {
     FaFacebookF,
-    FaGooglePlusG, FaInstagram, FaInstagramSquare,
+    FaInstagramSquare,
     FaLinkedinIn,
     FaMailBulk,
     FaPhoneAlt,
@@ -19,27 +19,32 @@ function Footer() {
                     <div className="row">
                         <div className="col-md-12 text-center">
                             <div className="footer-title">
-                                <a href="#">
+                                <Link to={routeConfig.HOME.url}>
                                     <span>FoodFlorist</span>
                                     <span>Helsingborg</span>
-                                </a>
+                                </Link>
                             </div>
 
                             <div className="footer-social-links">
                                 <a href="https://www.facebook.com/Food-Florist-Helsingborg-102803464926190"
                                    target="_blank"
+                                   rel="noopener noreferrer"
                                 >
                                     <FaFacebookF/>
                                 </a>
-                                <a href="#">
+                                <a href="https://twitter.com/" target="_blank"
+                                   rel="noopener noreferrer">
                                     <FaTwitter/>
                                 </a>
                                 <a href="https://www.instagram.com/foodfloristhelsingborg"
                                    target="_blank"
+                                   rel="noopener noreferrer"
                                 >
                                     <FaInstagramSquare/>
                                 </a>
-                                <a href="#">
+                                <a href="https://www.linkedin.com"
+                                   target="_blank"
+                                   rel="noopener noreferrer">
                                     <FaLinkedinIn/>
                                 </a>
                             </div>

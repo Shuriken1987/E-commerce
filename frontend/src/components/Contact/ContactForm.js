@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import ContactUsService from "../../services/contactUsService";
 import { useNavigate } from "react-router-dom";
-import { routeConfig } from "../../config/routeConfig";
 import "../../pages/Contact/contact.scss";
 
 function ContactForm() {
@@ -33,9 +32,6 @@ function ContactForm() {
       </div>
     );
   }
-
-  // * NAVIGATE
-  const navigate = useNavigate();
 
   // * STATES FOR FORM VALIDATION, MESSAGE FOR USER, AND API CALL
   const [isSent, setIsSent] = useState(false);
@@ -91,9 +87,6 @@ function ContactForm() {
       })
       .finally(() => {
         setIsApiFinished(true);
-        // setTimeout(function () {
-        //   navigate(routeConfig.SHOP.url);
-        // }, 3000);
       });
   };
 

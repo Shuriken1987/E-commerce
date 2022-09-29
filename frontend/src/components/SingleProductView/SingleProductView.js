@@ -1,12 +1,12 @@
 import {useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
 import ShopService from "../../services/shopService";
-import {FaHeart, FaRegHeart, FaStar, FaStarHalf} from "react-icons/fa";
+import {FaStar, FaStarHalf} from "react-icons/fa";
 import "./singleProductStyle.scss";
 import {useDispatch} from "react-redux";
 import {addToCart} from "../../redux/shopCartSlice";
 import ProductDetails from "./ProductDetails";
-import LatestProducts from "./LatestProducts";
+// import LatestProducts from "./LatestProducts";
 import Comments from "./Comments";
 
 function SingleProductView() {

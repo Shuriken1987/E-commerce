@@ -1,13 +1,10 @@
-import {useEffect, useState, useMemo, useLayoutEffect} from "react";
+import {useEffect, useState, useLayoutEffect} from "react";
 import shopService from "../../services/shopService";
-// import SharedService from "../../services/sharedService";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-// import ChangeCurrency from "../ChangeCurrency/ChangeCurrency";
 import {useDispatch} from "react-redux";
 import {addToCart} from "../../redux/shopCartSlice";
-// import "../ourProductSlider/ourProductSlider.scss";
 
 
 function LatestProducts() {

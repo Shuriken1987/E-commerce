@@ -1,9 +1,6 @@
 import {useDispatch, useSelector} from "react-redux";
-import React, {useEffect} from "react";
 import {FaTrashAlt, FaMinusCircle, FaPlusCircle} from "react-icons/fa";
 import {handleCount, removeItem} from "../../../redux/shopCartSlice";
-
-// import ChangeCurrency from "../../ChangeCurrency/ChangeCurrency";
 
 function OrderProcessStepOne() {
     const {cart} = useSelector(state => state.shopCartStore);

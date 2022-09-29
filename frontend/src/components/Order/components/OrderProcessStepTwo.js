@@ -23,10 +23,10 @@ function OrderProcessStepTwo() {
 
     useEffect(() => {
 
-    }, [isSubmit])
+    }, [isSubmit]);
+
     const handleSubmit = (e) => {
         e.preventDefault();
-
     }
 
     const handleFormChange = e => {
