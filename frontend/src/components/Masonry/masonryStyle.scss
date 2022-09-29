@@ -10,7 +10,7 @@
 
     .modern-box {
       position: relative;
-      background-color: #f3f4f3;
+      background-color: rgba(grey, 0.2);
       display: flex;
       margin-bottom: 10px;
       padding: 30px 10px;
@@ -52,7 +52,7 @@
           color: blueviolet;
         }
 
-        @media (max-width: 767pc) {
+        @media (max-width: 767px) {
           right: 20%;
           font-size: 12px;
         }

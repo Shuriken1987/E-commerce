@@ -52,7 +52,7 @@ function Navigation() {
                 <NavLink className="nav-link" to={routeConfig.CONTACT.url}>
                     Contact
                 </NavLink>
-                <a href="#" className="icon" onClick={showHamburger}>
+                <a className="icon" onClick={showHamburger}>
                     <FaBars/>
                 </a>
             </div>

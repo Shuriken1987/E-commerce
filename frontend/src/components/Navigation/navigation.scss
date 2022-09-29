@@ -78,7 +78,7 @@
 
 // NAV-TOP
 .nav-bar-wrapper {
-  background-color: $navTopBackColor;
+  background: linear-gradient(to bottom, rgba($black, 0.8), rgba($black, 0.6), rgba($black, 0.3));
 
   a {
     color: black;
@@ -89,17 +89,15 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 5px 0;
 
     .info-phone, .info-email, .info-social {
+      padding: 5px 0;
+      width: 100%;
+
       a {
         &:hover {
           color: $secondFontColor;
           transition: $transition;
-        }
-
-        span {
-          color: $borderFont;
         }
       }
     }
@@ -146,11 +144,10 @@
         font-size: 1.8rem;
         color: $black !important;
         font-family: $logoFont;
-        transition: $transition;
+        text-transform: capitalize;
 
-
-        &:hover {
-          color: $violet !important;
+        span:nth-child(2) {
+          color: $secondFontColor;
         }
       }
 
@@ -185,46 +182,51 @@
       .search-icon {
         cursor: pointer;
         color: #636262;
-        padding: 5px 5px 5px 0;
+        padding: 10px 5px 10px 15px;
+        background-color: white;
       }
 
       @media (max-width: 767px) {
         margin: 0 10px;
+        }
       }
-    }
 
-    .middle-cart {
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
-
-      .info-account {
+      .middle-cart {
         display: flex;
         justify-content: flex-end;
+        align-items: center;
 
-        li {
-          list-style: none;
+        .info-account {
+          display: flex;
+          justify-content: flex-end;
 
-          a {
+          li {
+            list-style: none;
+
+            a {
+              font-size: 18px;
+            }
+          }
+        }
+
+        .cart-icon {
+          color: black;
+          cursor: pointer;
+
+          svg {
             font-size: 18px;
           }
         }
       }
 
-      .cart-icon {
-        color: black;
-        cursor: pointer;
+      @media (max-width: 767px) {
+        padding: 10px 0;
+      }
+    }
 
-        svg {
-          font-size: 18px;
-        }
+    @media(max-width: 767px) {
+      .nav-bar-info {
+        display: none;
       }
     }
   }
-
-  @media(max-width: 767px) {
-    .top {
-      display: none;
-    }
-  }
-}

@@ -6,7 +6,7 @@ import {setUser} from "../../redux/userSlice";
 
 
 import {
-    FaPhoneAlt, FaMailBulk, FaSearch, FaUserAlt, FaSignInAlt,
+    FaPhoneAlt, FaMailBulk, FaSearch, FaUserAlt, FaSignInAlt, FaYoutube, FaInstagram, FaFacebook,
 } from "react-icons/fa";
 import ShopCart from "../ShopCart/ShopCart";
 
@@ -43,11 +43,11 @@ function NavTop() {
     const userBtnLayout = () => {
         return user.hasOwnProperty("username") ? (<li className="nav-item dropdown">
                 <a className="nav-link dropdown-toggle user"
-                    href="/"
-                    id="navbarDropdown"
-                    role="button"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
+                   href="/"
+                   id="navbarDropdown"
+                   role="button"
+                   data-bs-toggle="dropdown"
+                   aria-expanded="false"
                 >
                     <FaUserAlt/>
                 </a>
@@ -56,7 +56,7 @@ function NavTop() {
                 >
                     <li>
                         <Link to={routeConfig.USER_PROFILE.url}
-                            className="dropdown-item user-dropdown"
+                              className="dropdown-item user-dropdown"
                         >
                             <i className="bi bi-person-workspace me-2"></i>
                             Profile
@@ -64,7 +64,7 @@ function NavTop() {
                     </li>
                     <li>
                         <Link to={routeConfig.MY_ORDERS.url}
-                            className="dropdown-item user-dropdown">
+                              className="dropdown-item user-dropdown">
                             <i className="bi bi-box me-2"></i>
                             My orders
                         </Link>
@@ -99,18 +99,13 @@ function NavTop() {
                     <div className="nav-bar-info ">
                         <div className="info-phone ">
                             <a href="tel:1234567890">
-                                {" "}
-                                <FaPhoneAlt/> &nbsp; <span>Phone: </span> (+1) 123 - 456 - 7890{" "}
+                                <FaPhoneAlt/> &nbsp;  (+1) 123 - 456 - 7890
                             </a>
                         </div>
 
                         <div className="info-email">
                             <a href="mailto:info@ourdomain.com">
-                                {" "}
-                                <FaMailBulk/> &nbsp; <span>
-                {" "}
-                                Email:{" "}
-              </span> Info@Ourdomain.Com{" "}
+                                <FaMailBulk/> &nbsp;  Info@Ourdomain.Com
                             </a>
                         </div>
 
@@ -119,22 +114,21 @@ function NavTop() {
                                 <li>
                                     <a href="https://www.facebook.com/Food-Florist-Helsingborg-102803464926190"
                                        target="_blank"
-                                       rel="noopener noreferrer"
-                                    ><i
-                                        className="bi-facebook"></i>
+                                       rel="noopener noreferrer">
+                                        <FaFacebook/>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="https://www.instagram.com/foodfloristhelsingborg" target="_blank"
-                                    rel="noopener noreferrer"
-                                    ><i
-                                        className="bi-instagram"></i></a>
+                                       rel="noopener noreferrer">
+                                        <FaInstagram/>
+                                    </a>
                                 </li>
                                 <li>
                                     <a href="https://www.youtube.com/" target="_blank"
-                                    rel="noopener noreferrer"
-                                    ><i
-                                        className="bi-youtube"></i></a>
+                                       rel="noopener noreferrer">
+                                        <FaYoutube/>
+                                    </a>
                                 </li>
                             </ul>
                         </div>
@@ -143,7 +137,10 @@ function NavTop() {
 
                 <article className="nav-bar-middle col-md-12">
                     <div className="col-md-4 middle-logo">
-                        <a href="/" className="navbar-brand">FoodFloristHelsingborg</a>
+                        <Link className="navbar-brand furn-logo" to={routeConfig.HOME.url}>
+                            <span>FoodFlorist</span>
+                            <span>Helsingborg</span>
+                        </Link>
                     </div>
 
                     <div className='col-md-4 middle-search'>
