@@ -33,6 +33,9 @@
         font-size: 22px;
         letter-spacing: 0.45px;
         padding: 10px 0;
+        @media(max-width: 767px) {
+          font-size: 16px;
+        }
       }
 
       .shop-now {
@@ -43,13 +46,18 @@
         font-size: 15px;
         letter-spacing: 0.45px;
         text-transform: uppercase;
-        text-decoration: none;
         transition: $transition;
 
         &:hover {
           color: blueviolet;
         }
+
+        @media (max-width: 767pc) {
+          right: 20%;
+          font-size: 12px;
+        }
       }
+
     }
   }
 }
@@ -65,12 +73,16 @@
   padding-right: 10px; // i ovde cackaj da vidis sta se dogadja
 
   .shop-now {
-    left: 3%;
+    left: 5%;
+    @media (max-width: 767px) {
+      left: 8%;
+    }
   }
 }
 
 .modern-shop {
   flex: 0 0 48%;
+
   .img {
     max-width: 100%;
     height: 100%;
@@ -79,6 +91,7 @@
 
 .modern-product {
   flex: 0 0 31%;
+
   .col-md-7 {
     padding: 0;
   }

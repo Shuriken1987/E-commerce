@@ -1,9 +1,9 @@
-import {useEffect, useState} from "react";
+import {useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {Link, useNavigate} from "react-router-dom";
 import {routeConfig} from "../../config/routeConfig";
 import {setUser} from "../../redux/userSlice";
-import ShopService from "../../services/shopService";
+// import ShopService from "../../services/shopService";
 // import "./nav-top.scss";
 
 
@@ -120,16 +120,22 @@ function NavTop() {
                             <ul className="d-flex">
                                 <li>
                                     <a href="https://www.facebook.com/Food-Florist-Helsingborg-102803464926190"
-                                       target="_blank"><i
+                                       target="_blank"
+                                       rel="noopener noreferrer"
+                                    ><i
                                         className="bi-facebook"></i>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="https://www.instagram.com/foodfloristhelsingborg" target="_blank"><i
+                                    <a href="https://www.instagram.com/foodfloristhelsingborg" target="_blank"
+                                    rel="noopener noreferrer"
+                                    ><i
                                         className="bi-instagram"></i></a>
                                 </li>
                                 <li>
-                                    <a href="https://www.youtube.com/" target="_blank"><i
+                                    <a href="https://www.youtube.com/" target="_blank"
+                                    rel="noopener noreferrer"
+                                    ><i
                                         className="bi-youtube"></i></a>
                                 </li>
                             </ul>

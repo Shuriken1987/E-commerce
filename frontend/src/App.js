@@ -1,5 +1,5 @@
 import axios from "axios";
-import {Routes, Route, useNavigate} from "react-router-dom";
+import {Routes, Route} from "react-router-dom";
 import {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {setUser} from "./redux/userSlice";
@@ -39,9 +39,7 @@ axios.defaults.baseURL = process.env.REACT_APP_SERVER_URL;
 
 
 function App() {
-    const {user} = useSelector(state => state.userStore);
     const [isCheckingUserFinished, setIsCheckingUserFinished] = useState(false);
-    const navigate = useNavigate();
     const dispatch = useDispatch();
     const [isDashboard,setIsDashboard] = useState(false);
 
