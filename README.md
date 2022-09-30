@@ -20,3 +20,24 @@
 <li>Admin orders details page</li>
 <li>Admin messages </li>
 </ul>
+
+<h1>Languages and some tools</h1>
+<hr>
+<p>Server side</p>
+<ul>
+<li>Node.js</li>
+<li>Express is used to handle requests,routes...</li>
+<li>Nodemailer for sending and receiving email-s</li>
+<li>Mongoose schemas to model the application data</li>
+<li>Stripe for handling checkout proccess</li>
+<li>Multer for handling multipart/form-data</li>
+<li>Cors</li>
+</ul>
+<p>Client side</p>
+<ul>
+<li>React</li>
+<li>Stripe for handling checkout proccess</li>
+<li>Axios for API calls</li>
+<li>Animate for animations</li>
+<li>Redux toolkit to manage application's state</li>
+</ul>
