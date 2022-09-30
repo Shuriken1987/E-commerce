@@ -29,7 +29,7 @@
 <li>Express is used to handle requests,routes...</li>
 <li>Nodemailer for sending and receiving email-s</li>
 <li>Mongoose schemas to model the application data</li>
-<li>Stripe for handling checkout proccess</li>
+<li>Stripe for handling payment proccess</li>
 <li>Multer for handling multipart/form-data</li>
 <li>Cors</li>
 </ul>
