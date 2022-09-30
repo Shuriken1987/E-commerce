@@ -13,7 +13,7 @@ function Home() {
             <Header/>
 
             <div className="container">
-                <div className="home-section-wrapper my-5">
+                <div className="home-section-wrapper">
                     <Masonry changeSide={false}/>
                 </div>
             </div>

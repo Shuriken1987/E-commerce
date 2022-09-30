@@ -34,8 +34,8 @@ import Subscribers from "./adminComponents/Subscribers/Subscribers";
 import Orders from "./adminComponents/Orders/Orders";
 
 
-// axios.defaults.baseURL = 'http://localhost:5000';
-axios.defaults.baseURL = process.env.REACT_APP_SERVER_URL;
+axios.defaults.baseURL = 'http://localhost:5000';
+// axios.defaults.baseURL = process.env.REACT_APP_SERVER_URL;
 
 
 function App() {
@@ -62,6 +62,7 @@ function App() {
     }
 
     return (
+        //ROUTES
         <div className="main-wrapper">
             <Loader/>
             {!isDashboard && <NavTop/>}
@@ -80,7 +81,7 @@ function App() {
                     <Route path={routeConfig.ABOUT.url} element={<AboutUs/>}/>
                     <Route path={routeConfig.MY_ORDERS.url} element={<MyOrders/>}/>
                     <Route path="*" element={<ErrorPage/>}/>
-                    {/*ADMIN PART*/}
+                    {/*ADMIN ROUTES*/}
                     <Route path={routeConfig.DASHBOARD.url}
                             element={<AdminProtect>
                            <Dashboard isNav={setIsDashboard}/>

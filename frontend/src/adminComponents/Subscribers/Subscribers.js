@@ -1,6 +1,12 @@
+import gif from "../../img/icons8-services.gif";
 
-function Subscribers(){
+function Subscribers() {
 
-    return <h1>Subscribers</h1>
+    return (
+        <div>
+            <img src={gif} alt="Page comming soon" style={{width: 200, height: 200}}/>
+        </div>
+    )
 }
+
 export default Subscribers;

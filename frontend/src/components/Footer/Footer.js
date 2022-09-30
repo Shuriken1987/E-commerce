@@ -100,7 +100,7 @@ function Footer() {
             </footer>
 
             <section className="bottomBar text-center text-white bg-dark  p-3">
-                <p className="mb-0">Copyright &copy; {new Date().getFullYear()} Food Florist Helsingborg. | Design by Milan
+                <p className="mb-0">&copy; {new Date().getFullYear()} Food Florist Helsingborg. | Design by Milan
                     Stanojevic.</p>
             </section>
         </>
