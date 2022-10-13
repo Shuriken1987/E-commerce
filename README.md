@@ -44,5 +44,3 @@
 <li>Animate for animations</li>
 <li>Redux toolkit to manage application's state</li>
 </ul>
-
-<a href="https://food-florist-hbg.netlify.app/">Application link</a>
