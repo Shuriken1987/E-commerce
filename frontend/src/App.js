@@ -35,7 +35,7 @@ import Orders from "./adminComponents/Orders/Orders";
 
 
 // axios.defaults.baseURL = 'http://localhost:5000';
-axios.defaults.baseURL = https://food-florist-hbg.onrender.com/;
+axios.defaults.baseURL = 'https://food-florist-hbg.onrender.com/';
 
 
 function App() {
