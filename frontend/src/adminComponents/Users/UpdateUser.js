@@ -81,22 +81,22 @@ function UpdateUser({showModal, user, updatedDb}) {
                                onChange={onHandleInput}
                         />
 
-                        <label className="label" htmlFor="password">Password</label>
-                        <input className="form-control" name="password"
-                               type={passIsShown ? "text" : "password"}
-                               id="password"
-                               value={selectedUser.password || ''}
-                               onInput={onHandleInput}
-                        />
-                        <div className="checkbox-container">
-                            <label className="label" htmlFor="checkbox">Show password? </label>
-                            <input className="mx-1"
-                                   id="checkbox"
-                                   type="checkbox"
-                                checked={passIsShown}
-                                onChange={togglePassword}
-                            />
-                        </div>
+                        {/*<label className="label" htmlFor="password">Password</label>*/}
+                        {/*<input className="form-control" name="password"*/}
+                        {/*       type={passIsShown ? "text" : "password"}*/}
+                        {/*       id="password"*/}
+                        {/*       value={selectedUser.password || ''}*/}
+                        {/*       onInput={onHandleInput}*/}
+                        {/*/>*/}
+                        {/*<div className="checkbox-container">*/}
+                        {/*    <label className="label" htmlFor="checkbox">Show password? </label>*/}
+                        {/*    <input className="mx-1"*/}
+                        {/*           id="checkbox"*/}
+                        {/*           type="checkbox"*/}
+                        {/*        checked={passIsShown}*/}
+                        {/*        onChange={togglePassword}*/}
+                        {/*    />*/}
+                        {/*</div>*/}
                     </div>
                     <div className="col-md-6">
                         <label className="label" htmlFor="email">Email</label>

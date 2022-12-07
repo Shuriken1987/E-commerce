@@ -8,7 +8,6 @@ import {routeConfig} from "../../config/routeConfig";
 
 
 function Sidebar({sidebarColapse}) {
-    // const [isClicked, setIsClicked] = useState(false);
     const dispatch = useDispatch();
     const navigate = useNavigate();
 

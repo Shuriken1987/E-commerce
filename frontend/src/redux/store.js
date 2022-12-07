@@ -10,6 +10,6 @@ export default configureStore({
         userStore: userSlice,
         shopCartStore: shopCartSlice,
         orderProcessStore: orderProcessSlice,
-         loaderStore: loaderSlice,
+        loaderStore: loaderSlice,
     }
 });
